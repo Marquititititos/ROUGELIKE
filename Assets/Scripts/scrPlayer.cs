@@ -15,6 +15,7 @@ public class scrPlayer : MonoBehaviour
     public float dashCooldown;
     public bool isDashing = false;
     private bool canDash = true;
+    private bool isRight = true;
     
 
     //Objetos
@@ -22,6 +23,7 @@ public class scrPlayer : MonoBehaviour
     public Rigidbody2D rb;
     private Vector2 direccion;
     public Text txtHp;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,8 @@ public class scrPlayer : MonoBehaviour
             rb.velocity = new Vector2(hori, verti) * spd;
             direccion = new Vector2(hori, verti).normalized;
 
+            animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x + rb.velocity.y));
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (canDash == true)
@@ -52,6 +56,8 @@ public class scrPlayer : MonoBehaviour
         }
 
         txtHp.text = hp.ToString();
+
+        Flip();
     }
 
     private IEnumerator Dash()
@@ -63,5 +69,16 @@ public class scrPlayer : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+    }
+
+    private void Flip()
+    {
+        if (isRight && rb.velocity.x < 0 || !isRight && rb.velocity.x > 0)
+        {
+            isRight = !isRight;
+            Vector3 ls = transform.localScale;
+            ls.x *= -1;
+            transform.localScale = ls;
+        }
     }
 }

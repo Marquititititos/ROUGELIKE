@@ -32,11 +32,11 @@ public class scrEnemigo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (aiPath.desiredVelocity.x >= 0.01f)
+        if (playerTransform.position.x > transform.position.x)
         {
             transform.localScale = new Vector3(1, 1, 1);
             aiDestinationSetter.target = enemyPos1;
-        } else if (aiPath.desiredVelocity.x <= -0.01f)
+        } else if (playerTransform.position.x < transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
             aiDestinationSetter.target = enemyPos2;
