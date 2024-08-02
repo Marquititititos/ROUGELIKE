@@ -23,6 +23,8 @@ public class scrEnemigo : MonoBehaviour
     public Transform enemyPos1;
     public Transform enemyPos2;
 
+    public Transform lastTarget;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,19 +34,54 @@ public class scrEnemigo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerTransform.position.x > transform.position.x)
+
+        //Pathfinding
+
+        if (canAttack == true)
         {
-            transform.localScale = new Vector3(1, 1, 1);
-            aiDestinationSetter.target = enemyPos1;
-        } else if (playerTransform.position.x < transform.position.x)
+
+            if (Vector3.Distance(transform.position, enemyPos1.position) < Vector3.Distance(transform.position, enemyPos2.position))
+            {
+                aiDestinationSetter.target = enemyPos1;
+                lastTarget = enemyPos1;
+            }
+            else
+            {
+                aiDestinationSetter.target = enemyPos2;
+                lastTarget = enemyPos2;
+            }
+
+        } 
+
+        //Girar
+
+      
+        if (aiPath.desiredVelocity.x > 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-            aiDestinationSetter.target = enemyPos2;
+                transform.localScale = new Vector2(1, 1);
+        }
+
+        if (aiPath.desiredVelocity.x < 0)
+        {
+                transform.localScale = new Vector2(-1, 1);
+        }
+
+        if (aiPath.desiredVelocity.x == 0)
+        {
+            if (lastTarget == enemyPos1)
+            {
+                transform.localScale = new Vector2(1, 1);
+            }
+
+            if (lastTarget == enemyPos2)
+            {
+                transform.localScale = new Vector2(-1, 1);
+            }
         }
 
         //Atacar
 
-        if (Vector2.Distance((Vector2)attackPoint.position, (Vector2)playerTransform.position) < attackRange && aiPath.desiredVelocity.x == 0 && aiPath.desiredVelocity.y == 0)
+        if (Vector2.Distance((Vector2)attackPoint.position, (Vector2)playerTransform.position) < attackRange)
         {
             if (canAttack == true)
             {
@@ -68,6 +105,7 @@ public class scrEnemigo : MonoBehaviour
     private IEnumerator Atacar()
     {
         canAttack = false;
+        aiDestinationSetter.target = null;
 
         Collider2D[] player = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
