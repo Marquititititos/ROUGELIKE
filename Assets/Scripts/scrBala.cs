@@ -43,8 +43,8 @@ public class scrBala : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemigo")
         {
-            scrEnemigo scriptEnemigo = collision.gameObject.GetComponent<scrEnemigo>();
-            scriptEnemigo.hp -= daño;
+            scrEnemigo1 scriptEnemigo1 = collision.gameObject.GetComponent<scrEnemigo1>();
+            scriptEnemigo1.hp -= daño;
         }
     }
 }
