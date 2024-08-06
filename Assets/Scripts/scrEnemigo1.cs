@@ -21,6 +21,8 @@ public class scrEnemigo1 : MonoBehaviour
     public Transform attackPoint;
     public AIPath aipath;
     public GameObject player;
+    public Animator animator;
+    public GameObject ataque1;
 
     // Start is called before the first frame update
     void Start()
@@ -66,16 +68,26 @@ public class scrEnemigo1 : MonoBehaviour
             Destroy(gameObject);
         }
 
+
+        if (canAttack)
+        {
+            animator.SetFloat("anim", 0);
+        }
     }
 
     private IEnumerator Atacar()
     {
+
+        animator.SetFloat("anim", 1);
+
         aipath.canMove = false;
         canAttack = false;
 
         yield return new WaitForSeconds(1);
 
+        animator.SetFloat("anim", 2);
         Collider2D[] playerC = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+        Instantiate(ataque1, attackPoint.position, Quaternion.identity);
 
         if (playerC.Length > 0)
         {
@@ -83,15 +95,15 @@ public class scrEnemigo1 : MonoBehaviour
             scrplayer.hp -= daño;
         }
 
-        aipath.canMove = true;
 
         yield return new WaitForSeconds(cooldown);
 
+        aipath.canMove = true;
         canAttack = true;
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawSphere(attackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
