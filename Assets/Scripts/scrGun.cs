@@ -17,6 +17,7 @@ public class scrGun : MonoBehaviour
     private Camera camara;
     public Transform posPlayer;
     public GameObject bala;
+    public GameObject explosion;
     public Transform balaTransform;
     public GameObject player;
 
@@ -32,7 +33,7 @@ public class scrGun : MonoBehaviour
 
         scrPlayer scriptPlayer = player.GetComponent<scrPlayer>();
 
-        transform.position = new Vector2(posPlayer.position.x, posPlayer.position.y);
+        transform.position = new Vector2(posPlayer.position.x, posPlayer.position.y - 0.2f);
         
         mousePos = camara.ScreenToWorldPoint(Input.mousePosition);
 
@@ -41,6 +42,20 @@ public class scrGun : MonoBehaviour
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
+
+        if (rotZ > 180)
+        {
+            rotZ -= 360;
+        }
+
+        if (rotZ > -90 && rotZ < 90)
+        {
+            transform.localScale = new Vector2(1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector2(1, -1);
+        }
 
         if (Input.GetMouseButton(0) && canShoot == true && scriptPlayer.isDashing == false)
         {
@@ -65,5 +80,6 @@ public class scrGun : MonoBehaviour
     {
         canShoot = false;
         Instantiate(bala, balaTransform.position, Quaternion.identity);
+        Instantiate(explosion, balaTransform.position, Quaternion.identity);
     }
 }

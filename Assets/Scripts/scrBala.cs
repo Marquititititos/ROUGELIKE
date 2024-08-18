@@ -26,7 +26,7 @@ public class scrBala : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * spd;
 
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rot + 90);
+        transform.rotation = Quaternion.Euler(0, 0, rot + 180);
     }
 
     // Update is called once per frame

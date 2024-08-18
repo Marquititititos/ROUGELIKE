@@ -16,6 +16,8 @@ public class scrPlayer : MonoBehaviour
     public bool isDashing = false;
     private bool canDash = true;
     private bool isRight = true;
+
+    public bool invincible = false;
     
 
     //Objetos
@@ -24,6 +26,7 @@ public class scrPlayer : MonoBehaviour
     private Vector2 direccion;
     public Text txtHp;
     public Animator animator;
+    public TrailRenderer tr;
 
     // Start is called before the first frame update
     void Start()
@@ -62,13 +65,21 @@ public class scrPlayer : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        tr.emitting = true;
+        invincible = true;
         isDashing = true;
         canDash = false;
         rb.velocity = new Vector2(direccion.x * dashSpd, direccion.y * dashSpd);
+
         yield return new WaitForSeconds(dashTime);
+
         isDashing = false;
+        tr.emitting = false;
+
         yield return new WaitForSeconds(dashCooldown);
+
         canDash = true;
+        invincible = false;
     }
 
     private void Flip()
