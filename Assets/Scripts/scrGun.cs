@@ -80,6 +80,7 @@ public class scrGun : MonoBehaviour
     {
         canShoot = false;
         Instantiate(bala, balaTransform.position, Quaternion.identity);
-        Instantiate(explosion, balaTransform.position, Quaternion.identity);
+        GameObject explo = Instantiate(explosion, balaTransform.position, Quaternion.identity);
+        explo.transform.SetParent(this.transform);
     }
 }
