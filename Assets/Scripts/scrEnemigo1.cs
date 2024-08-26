@@ -15,6 +15,9 @@ public class scrEnemigo1 : MonoBehaviour
     public float attackRange;
     public bool canAttack = true;
 
+    public float maxSpd;
+    public float minSpd;
+
     //Objetos
 
     public LayerMask playerLayer;
@@ -28,6 +31,7 @@ public class scrEnemigo1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        aipath.maxSpeed = Random.Range(minSpd, maxSpd);
         player = GameObject.Find("Player");
         aides.target = player.transform;
     }

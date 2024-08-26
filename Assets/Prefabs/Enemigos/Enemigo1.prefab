@@ -184,6 +184,8 @@ MonoBehaviour:
   cooldown: 1
   attackRange: 0.82
   canAttack: 1
+  maxSpd: 3
+  minSpd: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -206,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  drawGizmos: 1
+  drawGizmos: 0
   detailedGizmos: 0
   startEndModifier:
     addPoints: 0
