@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using Pathfinding;
+using UnityEngine.AI;
 
 public class scrEnemigo1 : MonoBehaviour
 {
@@ -22,23 +22,24 @@ public class scrEnemigo1 : MonoBehaviour
 
     public LayerMask playerLayer;
     public Transform attackPoint;
-    public AIPath aipath;
     public GameObject player;
     public Animator animator;
     public GameObject ataque1;
-    public AIDestinationSetter aides;
+    private NavMeshAgent agent;
 
     // Start is called before the first frame update
     void Start()
     {
-        aipath.maxSpeed = Random.Range(minSpd, maxSpd);
         player = GameObject.Find("Player");
-        aides.target = player.transform;
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        agent.SetDestination(player.transform.position);
 
         //Girar
 
@@ -85,7 +86,7 @@ public class scrEnemigo1 : MonoBehaviour
     private IEnumerator Atacar()
     {
 
-        aipath.canMove = false;
+        agent.speed = 0;
         canAttack = false;
 
         yield return new WaitForSeconds(2);
@@ -106,7 +107,7 @@ public class scrEnemigo1 : MonoBehaviour
 
         yield return new WaitForSeconds(cooldown);
 
-        aipath.canMove = true;
+        agent.speed = 3.5f;
         animator.SetFloat("anim", 0);
         canAttack = true;
     }

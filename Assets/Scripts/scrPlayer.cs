@@ -47,7 +47,13 @@ public class scrPlayer : MonoBehaviour
             rb.velocity = new Vector2(hori, verti) * spd;
             direccion = new Vector2(hori, verti).normalized;
 
-            animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x + rb.velocity.y));
+            if (rb.velocity.x  != 0 || rb.velocity.y != 0)
+            {
+                animator.SetFloat("Speed", 1);
+            } else
+            {
+                animator.SetFloat("Speed", 0);
+            }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
