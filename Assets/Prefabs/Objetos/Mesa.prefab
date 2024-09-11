@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2149661129588545019}
   - component: {fileID: 6244345878772053739}
-  - component: {fileID: 1300217849783761481}
+  - component: {fileID: 8562734399008267584}
+  - component: {fileID: -1414623366590208810}
   m_Layer: 7
   m_Name: Mesa
   m_TagString: Colision
@@ -85,7 +86,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1300217849783761481
+--- !u!208 &8562734399008267584
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4247894225366768202}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!61 &-1414623366590208810
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

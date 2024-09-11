@@ -15,6 +15,7 @@ public class scrRoomSpawner : MonoBehaviour
 
     public GameObject bloque;
     public GameObject enemy;
+    public GameObject enviroment;
     private List<Vector2> gridObjetos = new List<Vector2>();
     private List<Vector2> gridEnemigos = new List<Vector2>();
     public List<GameObject> instancias = new List<GameObject>();
@@ -33,6 +34,10 @@ public class scrRoomSpawner : MonoBehaviour
 
     public void Spawnear()
     {
+
+        gridObjetos.Clear();
+        gridEnemigos.Clear();
+
         //Crear grid objetos
         for (int x = 0; x < gridWidth; x++)
         {
@@ -57,24 +62,15 @@ public class scrRoomSpawner : MonoBehaviour
             if (gridObjetos.Count > 0)
             {
                 GameObject objeto = Instantiate(bloque);
+                objeto.transform.SetParent(enviroment.transform);
                 instancias.Add(objeto);
                 objeto.transform.position = gridObjetos[Random.Range(0, gridObjetos.Count)];
                 Vector2 vectorObjeto = objeto.transform.position;
 
-                gridObjetos.Remove(vectorObjeto);
-                gridEnemigos.Remove(vectorObjeto);
+                Vector2 minBound = vectorObjeto - new Vector2(2, 2);
+                Vector2 maxBound = vectorObjeto + new Vector2(2, 2);
 
-                //Eliminar baldosas laterales
-                if (gridObjetos.Contains(new Vector2(vectorObjeto.x + 1, vectorObjeto.y))) { gridObjetos.Remove(new Vector2(vectorObjeto.x + 1, vectorObjeto.y)); }
-                if (gridObjetos.Contains(new Vector2(vectorObjeto.x - 1, vectorObjeto.y))) { gridObjetos.Remove(new Vector2(vectorObjeto.x - 1, vectorObjeto.y)); }
-                if (gridObjetos.Contains(new Vector2(vectorObjeto.x, vectorObjeto.y + 1))) { gridObjetos.Remove(new Vector2(vectorObjeto.x, vectorObjeto.y + 1)); }
-                if (gridObjetos.Contains(new Vector2(vectorObjeto.x, vectorObjeto.y - 1))) { gridObjetos.Remove(new Vector2(vectorObjeto.x, vectorObjeto.y - 1)); }
-
-                //Eliminar baldosas diagonales
-                if (gridObjetos.Contains(new Vector2(vectorObjeto.x + 1, vectorObjeto.y + 1))) { gridObjetos.Remove(new Vector2(vectorObjeto.x + 1, vectorObjeto.y + 1)); }
-                if (gridObjetos.Contains(new Vector2(vectorObjeto.x - 1, vectorObjeto.y - 1))) { gridObjetos.Remove(new Vector2(vectorObjeto.x - 1, vectorObjeto.y - 1)); }
-                if (gridObjetos.Contains(new Vector2(vectorObjeto.x - 1, vectorObjeto.y + 1))) { gridObjetos.Remove(new Vector2(vectorObjeto.x - 1, vectorObjeto.y + 1)); }
-                if (gridObjetos.Contains(new Vector2(vectorObjeto.x + 1, vectorObjeto.y - 1))) { gridObjetos.Remove(new Vector2(vectorObjeto.x + 1, vectorObjeto.y - 1)); }
+                gridObjetos.RemoveAll(v => v.x >= minBound.x && v.x <= maxBound.x && v.y >= minBound.y && v.y <= maxBound.y);
             }
         }
 
