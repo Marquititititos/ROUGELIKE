@@ -6,8 +6,8 @@ public class scrRoomSpawner : MonoBehaviour
 {
     //Variables
 
-    private float gridWidth = 14;
-    private float gridHeight = 6;
+    public float gridWidth;
+    public float gridHeight;
     public float objectNumber;
     public float enemyNumber;
 
@@ -43,7 +43,7 @@ public class scrRoomSpawner : MonoBehaviour
         {
             for (int y = 0; y < gridHeight; y++)
             {
-                gridObjetos.Add(new Vector2(x - 3.5f, y - 2.5f));
+                gridObjetos.Add(new Vector2(x - 7.5f, y - 5.5f));
             }
         }
 
@@ -52,7 +52,7 @@ public class scrRoomSpawner : MonoBehaviour
         {
             for (int y = 0; y < gridHeight; y++)
             {
-                gridEnemigos.Add(new Vector2(x - 3.5f, y - 2.5f));
+                gridEnemigos.Add(new Vector2(x - 7.5f, y - 5.5f));
             }
         }
 
@@ -67,8 +67,8 @@ public class scrRoomSpawner : MonoBehaviour
                 objeto.transform.position = gridObjetos[Random.Range(0, gridObjetos.Count)];
                 Vector2 vectorObjeto = objeto.transform.position;
 
-                Vector2 minBound = vectorObjeto - new Vector2(2, 2);
-                Vector2 maxBound = vectorObjeto + new Vector2(2, 2);
+                Vector2 minBound = vectorObjeto - new Vector2(1, 1);
+                Vector2 maxBound = vectorObjeto + new Vector2(1, 1);
 
                 gridObjetos.RemoveAll(v => v.x >= minBound.x && v.x <= maxBound.x && v.y >= minBound.y && v.y <= maxBound.y);
             }

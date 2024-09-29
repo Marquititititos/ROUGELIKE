@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5784438879493116485}
   - component: {fileID: 4891803813526111876}
   - component: {fileID: 7719619939329464628}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemigo1
   m_TagString: Enemigo
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -176,7 +176,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &7719619939329464628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
   attackRange: 0.82
   canAttack: 1
   maxSpd: 3
-  minSpd: 1
+  minSpd: 2
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -212,7 +212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 685925004297770453}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -17,6 +17,7 @@ public class scrEnemigo1 : MonoBehaviour
 
     public float maxSpd;
     public float minSpd;
+    private float spd;
 
     //Objetos
 
@@ -34,6 +35,8 @@ public class scrEnemigo1 : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        spd = Random.Range(minSpd, maxSpd);
+        agent.speed = spd;
     }
 
     // Update is called once per frame
@@ -107,7 +110,7 @@ public class scrEnemigo1 : MonoBehaviour
 
         yield return new WaitForSeconds(cooldown);
 
-        agent.speed = 3.5f;
+        agent.speed = spd;
         animator.SetFloat("anim", 0);
         canAttack = true;
     }

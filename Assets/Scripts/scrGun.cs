@@ -25,6 +25,8 @@ public class scrGun : MonoBehaviour
     void Start()
     {
         camara = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        player = GameObject.Find("Player");
+        posPlayer = player.transform;
     }
 
     // Update is called once per frame
