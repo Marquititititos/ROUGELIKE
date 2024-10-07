@@ -14,7 +14,7 @@ public class scrBala : MonoBehaviour
     private Vector3 mousePos;
     private Camera camara;
     public Rigidbody2D rb;
-
+    public GameObject explosion;
 
     void Start()
     {
@@ -38,13 +38,14 @@ public class scrBala : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Colision" || collision.gameObject.tag == "Enemigo") {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
 
         if (collision.gameObject.tag == "Enemigo")
         {
             scrEnemigo1 scriptEnemigo1 = collision.gameObject.GetComponent<scrEnemigo1>();
-            scriptEnemigo1.hp -= daño;
+            scriptEnemigo1.StartCoroutine(scriptEnemigo1.Daño(daño));
         }
     }
 }

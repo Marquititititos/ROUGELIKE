@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class scrRoomSpawner : MonoBehaviour
 {
@@ -16,8 +17,9 @@ public class scrRoomSpawner : MonoBehaviour
     public GameObject bloque;
     public GameObject enemy;
     public GameObject enviroment;
-    private List<Vector2> gridObjetos = new List<Vector2>();
-    private List<Vector2> gridEnemigos = new List<Vector2>();
+    public GameObject aa;
+    public List<Vector2> gridObjetos = new List<Vector2>();
+    public List<Vector2> gridEnemigos = new List<Vector2>();
     public List<GameObject> instancias = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -29,7 +31,10 @@ public class scrRoomSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-          
+          if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Spawnear();
+        }
     }
 
     public void Spawnear()
@@ -37,6 +42,7 @@ public class scrRoomSpawner : MonoBehaviour
 
         gridObjetos.Clear();
         gridEnemigos.Clear();
+        instancias.Clear();
 
         //Crear grid objetos
         for (int x = 0; x < gridWidth; x++)
@@ -55,6 +61,8 @@ public class scrRoomSpawner : MonoBehaviour
                 gridEnemigos.Add(new Vector2(x - 7.5f, y - 5.5f));
             }
         }
+
+        Debug.Log("GridEnemigos Count: " + gridEnemigos.Count);
 
         //Spawnear objetos
         for (int i = 0; i < objectNumber; i++)
@@ -79,10 +87,23 @@ public class scrRoomSpawner : MonoBehaviour
         {
             GameObject enemigo = Instantiate(enemy);
             instancias.Add(enemigo);
+            enemigo.GetComponent<NavMeshAgent>().enabled = false;
             enemigo.transform.position = gridEnemigos[Random.Range(0, gridEnemigos.Count)];
+            enemigo.GetComponent<NavMeshAgent>().enabled = true;
             Vector2 vectorEnemigo = enemigo.transform.position;
-
             gridEnemigos.Remove(vectorEnemigo);
         }
+
+        foreach (GameObject enemigo in instancias)
+        {
+            Debug.Log("Enemy position in Update: " + enemigo.transform.position);
+        }
+
+        //foreach(Vector2 vector in gridEnemigos)
+        //{
+        //    GameObject d = Instantiate(aa);
+        //    d.transform.position = vector;
+        //    instancias.Add(d);
+        //}
     }
 }

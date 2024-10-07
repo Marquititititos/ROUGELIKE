@@ -34,15 +34,10 @@ public class scrGun : MonoBehaviour
     {
 
         scrPlayer scriptPlayer = player.GetComponent<scrPlayer>();
-
         transform.position = new Vector2(posPlayer.position.x, posPlayer.position.y - 0.2f);
-        
         mousePos = camara.ScreenToWorldPoint(Input.mousePosition);
-
         Vector3 rotation = mousePos - transform.position;
-
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
 
         if (rotZ > 180)

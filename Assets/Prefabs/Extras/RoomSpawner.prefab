@@ -44,8 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe71fcb1273ea9246a53149ba3839d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridWidth: 0
+  gridHeight: 0
   objectNumber: 6
   enemyNumber: 5
-  bloque: {fileID: 4247894225366768202, guid: 941ac21e50f855d47838210fd1229eab, type: 3}
-  enemy: {fileID: 5843994014847618747, guid: bacb283e8b265cf41977edb09d7e5d4e, type: 3}
+  bloque: {fileID: 0}
+  enemy: {fileID: 0}
+  enviroment: {fileID: 0}
+  aa: {fileID: 0}
+  gridObjetos: []
+  gridEnemigos: []
   instancias: []

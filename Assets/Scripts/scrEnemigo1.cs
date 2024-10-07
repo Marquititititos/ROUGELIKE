@@ -29,6 +29,7 @@ public class scrEnemigo1 : MonoBehaviour
     private NavMeshAgent agent;
 
     // Start is called before the first frame update
+
     void Start()
     {
         player = GameObject.Find("Player");
@@ -113,6 +114,14 @@ public class scrEnemigo1 : MonoBehaviour
         agent.speed = spd;
         animator.SetFloat("anim", 0);
         canAttack = true;
+    }
+
+    public IEnumerator Daño(float daño)
+    {
+        hp -= daño;
+        GetComponent<SpriteRenderer>().color = Color.gray;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     private void OnDrawGizmosSelected()

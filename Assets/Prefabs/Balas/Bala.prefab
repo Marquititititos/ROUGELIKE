@@ -102,6 +102,7 @@ MonoBehaviour:
   spd: 15
   "da\xF1o": 1
   rb: {fileID: 321352800320532774}
+  explosion: {fileID: 7868997956364987727, guid: 3f11b9d5676c92444a21f89a39fcb059, type: 3}
 --- !u!50 &321352800320532774
 Rigidbody2D:
   serializedVersion: 4
