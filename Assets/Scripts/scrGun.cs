@@ -10,6 +10,7 @@ public class scrGun : MonoBehaviour
     public float cooldown;
     private float timer;
     private bool canShoot = true;
+    public float daño;
 
     //Objetos 
 
@@ -76,7 +77,8 @@ public class scrGun : MonoBehaviour
     void Disparar()
     {
         canShoot = false;
-        Instantiate(bala, balaTransform.position, Quaternion.identity);
+        GameObject balaDisparada = Instantiate(bala, balaTransform.position, Quaternion.identity);
+        balaDisparada.GetComponent<scrBala>().daño = daño;
         GameObject explo = Instantiate(explosion, balaTransform.position, Quaternion.identity);
         explo.transform.SetParent(this.transform);
     }

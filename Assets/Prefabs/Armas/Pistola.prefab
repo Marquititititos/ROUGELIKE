@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6198616047281684730}
   - component: {fileID: 2909919170540882835}
   m_Layer: 0
-  m_Name: Gun
+  m_Name: Pistola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0.4
+  "da\xF1o": 1
   posPlayer: {fileID: 0}
   bala: {fileID: 3030387807035441924, guid: 2b65c6d9511cacf46b11ff0f1df9ac68, type: 3}
   explosion: {fileID: 7868997956364987727, guid: 3f11b9d5676c92444a21f89a39fcb059, type: 3}

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class scrSpawnZone : MonoBehaviour
 {
-    public Vector2 playerSpawnPos = new Vector2(-6.5f, 0);
+    public Vector2 playerSpawnPos = new Vector2(-11.5f, -0.5f);
     public GameObject roomSpawner;
     public GameObject player;
     public Image BlackScreen;
@@ -45,7 +45,7 @@ public class scrSpawnZone : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        player.transform.position = playerSpawnPos;
+        player.transform.position = new Vector2(-11.5f, -0.5f); 
         roomSpawnerScript.Spawnear();
 
         while (BlackScreen.GetComponent<Image>().color.a > 0)

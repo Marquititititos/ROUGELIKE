@@ -46,6 +46,7 @@ public class scrBala : MonoBehaviour
         {
             scrEnemigo1 scriptEnemigo1 = collision.gameObject.GetComponent<scrEnemigo1>();
             scriptEnemigo1.StartCoroutine(scriptEnemigo1.Daño(daño));
+            Destroy(this.gameObject);
         }
     }
 }

@@ -19,6 +19,8 @@ public class scrEnemigo1 : MonoBehaviour
     public float minSpd;
     private float spd;
 
+    private bool isTarget = false;
+
     //Objetos
 
     public LayerMask playerLayer;
