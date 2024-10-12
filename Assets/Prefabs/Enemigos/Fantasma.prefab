@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3030387807035441924
+--- !u!1 &8960196385803560664
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7312147998268799909}
-  - component: {fileID: 3998286757382401175}
-  - component: {fileID: 1261284016250471079}
-  - component: {fileID: 321352800320532774}
-  - component: {fileID: 2048903468348145041}
-  m_Layer: 6
-  m_Name: Bala
-  m_TagString: DestruirEnRespawn
+  - component: {fileID: 3934380101176131068}
+  - component: {fileID: 7026649487364112180}
+  - component: {fileID: 2605493457767797530}
+  - component: {fileID: 2889818512019339002}
+  - component: {fileID: 3472396653911600827}
+  m_Layer: 8
+  m_Name: Fantasma
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7312147998268799909
+--- !u!4 &3934380101176131068
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3030387807035441924}
+  m_GameObject: {fileID: 8960196385803560664}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9622386, y: 0.09310987, z: 0}
+  m_LocalPosition: {x: -10.391809, y: -2.3874652, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3998286757382401175
+--- !u!212 &7026649487364112180
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3030387807035441924}
+  m_GameObject: {fileID: 8960196385803560664}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 12b49e9fc507eaf49ad0bd65b1184ad4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 1934081970, guid: 81a92156173954545af0e9b699d1e4ac, type: 3}
+  m_Color: {r: 0.73333335, g: 1, b: 0.61960787, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,58 +87,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1261284016250471079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3030387807035441924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ba1e0db455d7345974b87ff9ebf70d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spd: 15
-  "da\xF1o": 1
-  mousePos: {x: 0, y: 0, z: 0}
-  camara: {fileID: 0}
-  rb: {fileID: 321352800320532774}
-  explosion: {fileID: 7868997956364987727, guid: 3f11b9d5676c92444a21f89a39fcb059, type: 3}
---- !u!50 &321352800320532774
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3030387807035441924}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 8
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
---- !u!61 &2048903468348145041
+--- !u!61 &2605493457767797530
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3030387807035441924}
+  m_GameObject: {fileID: 8960196385803560664}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -147,7 +102,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -164,10 +119,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.030886412, y: 0.030911505}
+  m_Offset: {x: -0.011516243, y: -0.06525877}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.6004394, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -175,5 +130,53 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.320498, y: 0.19700253}
+  m_Size: {x: 0.48128754, y: 0.5623825}
   m_EdgeRadius: 0
+--- !u!114 &2889818512019339002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960196385803560664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1608daac624264a41a4c325191e0f0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 6
+  "da\xF1o": 10
+  cooldown: 0
+  attackRange: 0
+  canAttack: 1
+  maxSpd: 2
+  minSpd: 1
+  spd: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  player: {fileID: 0}
+  scrplayer: {fileID: 0}
+  animator: {fileID: 0}
+  isColliding: 0
+--- !u!95 &3472396653911600827
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960196385803560664}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 266a1662669c91645b684a561e9f42e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

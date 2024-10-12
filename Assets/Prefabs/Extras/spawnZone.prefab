@@ -90,6 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a35ba4d7f11e24ca83c647eabe85b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  armas:
+  - {fileID: 1788965090635788000, guid: 9fa36c57aabb84d4f84edf18d3fcc8cc, type: 3}
+  - {fileID: 370042202172785185, guid: 1d0d3ba0733890f4ebce0a70ed34d0d8, type: 3}
+  - {fileID: 6590952194965328496, guid: b8ac847c95e0b9f40bf0258d2f4286e3, type: 3}
   playerSpawnPos: {x: -6.5, y: 0}
   roomSpawner: {fileID: 0}
   player: {fileID: 0}
+  BlackScreen: {fileID: 0}

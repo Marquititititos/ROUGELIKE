@@ -6,8 +6,8 @@ TagManager:
   tags:
   - Colision
   - Enemigo
-  - enemyPos1
-  - enemyPos2
+  - Arma
+  - DestruirEnRespawn
   layers:
   - Default
   - TransparentFX

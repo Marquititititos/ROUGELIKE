@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class scrGun : MonoBehaviour
+public abstract class scrArmaBase : MonoBehaviour
 {
 
     //Variables
 
     public float cooldown;
     private float timer;
-    private bool canShoot = true;
+    public bool canShoot = true;
     public float daño;
 
     //Objetos 
@@ -22,8 +22,10 @@ public class scrGun : MonoBehaviour
     public Transform balaTransform;
     public GameObject player;
 
+    public abstract void Disparar();
+
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         camara = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         player = GameObject.Find("Player");
@@ -31,7 +33,7 @@ public class scrGun : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
 
         scrPlayer scriptPlayer = player.GetComponent<scrPlayer>();
@@ -73,13 +75,6 @@ public class scrGun : MonoBehaviour
             }
         }
     }
-
-    void Disparar()
-    {
-        canShoot = false;
-        GameObject balaDisparada = Instantiate(bala, balaTransform.position, Quaternion.identity);
-        balaDisparada.GetComponent<scrBala>().daño = daño;
-        GameObject explo = Instantiate(explosion, balaTransform.position, Quaternion.identity);
-        explo.transform.SetParent(this.transform);
-    }
 }
+
+

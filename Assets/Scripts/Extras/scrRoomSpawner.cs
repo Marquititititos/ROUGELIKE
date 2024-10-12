@@ -15,7 +15,7 @@ public class scrRoomSpawner : MonoBehaviour
     //Objetos
 
     public GameObject bloque;
-    public GameObject enemy;
+    public GameObject[] enemigos;
     public GameObject enviroment;
     public GameObject aa;
     public List<Vector2> gridObjetos = new List<Vector2>();
@@ -31,10 +31,7 @@ public class scrRoomSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-          if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Spawnear();
-        }
+
     }
 
     public void Spawnear()
@@ -85,11 +82,21 @@ public class scrRoomSpawner : MonoBehaviour
         //Spawnear enemigos
         for (int i = 0; i < enemyNumber; i++)
         {
-            GameObject enemigo = Instantiate(enemy);
+            GameObject enemigo = Instantiate(enemigos[Random.Range(0, enemigos.Length)]);
             instancias.Add(enemigo);
-            enemigo.GetComponent<NavMeshAgent>().enabled = false;
+
+            if (enemigo.GetComponent<NavMeshAgent>() != null)
+            {
+                enemigo.GetComponent<NavMeshAgent>().enabled = false;
+            }
+
             enemigo.transform.position = gridEnemigos[Random.Range(0, gridEnemigos.Count)];
-            enemigo.GetComponent<NavMeshAgent>().enabled = true;
+
+            if (enemigo.GetComponent<NavMeshAgent>() != null)
+            {
+                enemigo.GetComponent<NavMeshAgent>().enabled = true;
+            }
+
             Vector2 vectorEnemigo = enemigo.transform.position;
             gridEnemigos.Remove(vectorEnemigo);
         }

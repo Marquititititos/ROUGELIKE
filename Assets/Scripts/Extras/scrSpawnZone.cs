@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class scrSpawnZone : MonoBehaviour
 {
+    //Variables
+
+    public GameObject[] armas;
+
+    //Objetos
     public Vector2 playerSpawnPos = new Vector2(-11.5f, -0.5f);
     public GameObject roomSpawner;
     public GameObject player;
@@ -45,7 +50,16 @@ public class scrSpawnZone : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        player.transform.position = new Vector2(-11.5f, -0.5f); 
+        player.transform.position = new Vector2(-11.5f, -0.5f);
+
+        foreach(GameObject balas in GameObject.FindGameObjectsWithTag("DestruirEnRespawn"))
+        {
+            Destroy(balas);
+        }
+
+        Destroy(GameObject.FindGameObjectWithTag("Arma"));
+        Instantiate(armas[Random.Range(0, armas.Length)]);
+
         roomSpawnerScript.Spawnear();
 
         while (BlackScreen.GetComponent<Image>().color.a > 0)

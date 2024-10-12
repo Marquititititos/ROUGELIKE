@@ -98,4 +98,12 @@ public class scrPlayer : MonoBehaviour
             transform.localScale = ls;
         }
     }
+
+    public IEnumerator Golpe(float daño)
+    {
+        hp -= daño;
+        invincible = true;
+        yield return new WaitForSeconds(2);
+        invincible = false;
+    }
 }
