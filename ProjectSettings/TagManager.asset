@@ -8,6 +8,7 @@ TagManager:
   - Enemigo
   - Arma
   - DestruirEnRespawn
+  - ColisionExterna
   layers:
   - Default
   - TransparentFX

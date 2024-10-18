@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0.2
   canShoot: 1
-  "da\xF1o": 0.5
+  "da\xF1o": 0.7
   posPlayer: {fileID: 0}
   bala: {fileID: 3030387807035441924, guid: 2b65c6d9511cacf46b11ff0f1df9ac68, type: 3}
   explosion: {fileID: 1132065869638844668}

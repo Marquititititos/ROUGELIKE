@@ -8,23 +8,15 @@ public class scrEnemigo1 : scrEnemigoBase
 {
     public GameObject ataque1;
     public Transform attackPoint;
-    [HideInInspector] public NavMeshAgent agent;
 
     public override void Start()
     {
         base.Start();
-
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        agent.speed = spd;
     }
 
     public override void Update()
     {
         base.Update();
-
-        agent.SetDestination(player.transform.position);
 
         Collider2D[] playerC = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
@@ -46,7 +38,7 @@ public class scrEnemigo1 : scrEnemigoBase
     private IEnumerator Atacar()
     {
 
-        agent.speed = 0;
+        GetComponent<scrPathFinding>().agent.speed = 0;
         canAttack = false;
 
         yield return new WaitForSeconds(2);
@@ -66,7 +58,7 @@ public class scrEnemigo1 : scrEnemigoBase
 
         yield return new WaitForSeconds(cooldown);
 
-        agent.speed = spd;
+        GetComponent<scrPathFinding>().agent.speed = GetComponent<scrPathFinding>().spd;
         animator.SetFloat("anim", 0);
         canAttack = true;
     }

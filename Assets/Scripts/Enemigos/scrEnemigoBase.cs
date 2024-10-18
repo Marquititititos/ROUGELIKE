@@ -17,10 +17,6 @@ public abstract class scrEnemigoBase : MonoBehaviour
     public float attackRange;
     public bool canAttack = true;
 
-    public float maxSpd;
-    public float minSpd;
-    public float spd;
-
     //Objetos
 
     public LayerMask playerLayer;
@@ -33,7 +29,6 @@ public abstract class scrEnemigoBase : MonoBehaviour
     {
         player = GameObject.Find("Player");
         scrplayer = player.GetComponent<scrPlayer>();
-        spd = Random.Range(minSpd, maxSpd);
     }
 
     public virtual void Update()
