@@ -49,10 +49,7 @@ public class scrEnemigo1 : scrEnemigoBase
 
         if (playerC.Length > 0)
         {
-            if (scrplayer.invincible == false)
-            {
-                scrplayer.StartCoroutine(scrplayer.Golpe(daño));
-            }
+             scrplayer.StartCoroutine(scrplayer.Golpe(daño));
         }
 
 

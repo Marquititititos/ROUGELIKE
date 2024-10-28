@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class scrRobot : scrEnemigoBase
+public class scrAraña : scrEnemigoBase
 {
-    public GameObject ataque1;
     public Transform attackPoint;
     public GameObject bola;
 
@@ -13,7 +11,7 @@ public class scrRobot : scrEnemigoBase
     {
         base.Start();
 
-        cooldown = Random.Range(5, 8);
+        cooldown = Random.Range(8, 14);
     }
 
     public override void Update()
@@ -23,7 +21,8 @@ public class scrRobot : scrEnemigoBase
         if (cooldown > 0)
         {
             cooldown -= Time.deltaTime;
-        } else
+        }
+        else
         {
             if (canAttack)
             {
@@ -36,14 +35,14 @@ public class scrRobot : scrEnemigoBase
     {
         GetComponent<scrPathFinding>().agent.speed = 0;
         canAttack = false;
-        animator.SetFloat("anim", 1);
+        //animator.SetFloat("anim", 1);
         yield return new WaitForSeconds(1.5f);
         Instantiate(bola, attackPoint.position, Quaternion.identity);
-        animator.SetFloat("anim", 2);
+        //animator.SetFloat("anim", 2);
         canAttack = true;
         cooldown = Random.Range(5, 8);
         yield return new WaitForSeconds(0.5f);
         GetComponent<scrPathFinding>().agent.speed = GetComponent<scrPathFinding>().spd;
-        animator.SetFloat("anim", 0);
+        //animator.SetFloat("anim", 0);
     }
 }

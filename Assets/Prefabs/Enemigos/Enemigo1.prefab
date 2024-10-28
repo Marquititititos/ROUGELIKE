@@ -195,6 +195,7 @@ MonoBehaviour:
   cooldown: 1
   attackRange: 0.82
   canAttack: 1
+  materialBase: {fileID: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -203,7 +204,6 @@ MonoBehaviour:
   animator: {fileID: 5784438879493116485}
   ataque1: {fileID: 3295557497981437032, guid: 79b11f4d9dcf2024b9ee805909aae1ef, type: 3}
   attackPoint: {fileID: 685925004297770453}
-  agent: {fileID: 0}
 --- !u!114 &7169583468939642320
 MonoBehaviour:
   m_ObjectHideFlags: 0

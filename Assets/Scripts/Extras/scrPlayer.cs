@@ -101,9 +101,12 @@ public class scrPlayer : MonoBehaviour
 
     public IEnumerator Golpe(float daño)
     {
-        hp -= daño;
-        invincible = true;
-        yield return new WaitForSeconds(2);
-        invincible = false;
+        if (invincible == false)
+        {
+            hp -= daño;
+            invincible = true;
+            yield return new WaitForSeconds(2);
+            invincible = false;
+        }
     }
 }

@@ -16,6 +16,7 @@ public abstract class scrEnemigoBase : MonoBehaviour
     public float cooldown;
     public float attackRange;
     public bool canAttack = true;
+    [HideInInspector] public Material materialBase;
 
     //Objetos
 
@@ -23,12 +24,16 @@ public abstract class scrEnemigoBase : MonoBehaviour
     [HideInInspector] public GameObject player;
     [HideInInspector] public scrPlayer scrplayer;
     public Animator animator;
+    private Color colorBase;
 
 
     public virtual void Start()
     {
+        colorBase = GetComponent<SpriteRenderer>().color;
         player = GameObject.Find("Player");
         scrplayer = player.GetComponent<scrPlayer>();
+        materialBase = new Material(Shader.Find("Sprites/Default"));
+        GetComponent<SpriteRenderer>().material = materialBase;
     }
 
     public virtual void Update()
@@ -60,10 +65,10 @@ public abstract class scrEnemigoBase : MonoBehaviour
     public IEnumerator Daño(float daño)
     {
         hp -= daño;
-
-        Color color = GetComponent<SpriteRenderer>().color;
-        GetComponent<SpriteRenderer>().color = Color.gray;
+        GetComponent<SpriteRenderer>().color = Color.white;
+        GetComponent<SpriteRenderer>().material = new Material(Shader.Find("GUI/Text Shader"));
         yield return new WaitForSeconds(0.1f);
-        GetComponent<SpriteRenderer>().color = color;
+        GetComponent<SpriteRenderer>().color = colorBase;
+        GetComponent<SpriteRenderer>().material = materialBase;
     }
 }

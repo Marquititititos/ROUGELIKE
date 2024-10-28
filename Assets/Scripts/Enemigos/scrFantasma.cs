@@ -13,10 +13,10 @@ public class scrFantasma : scrEnemigoBase
 
     public override void Start()
     {
-        base.Start();
-
-        spd = Random.Range(minSpd, maxSpd);
         GetComponent<SpriteRenderer>().color = Color.HSVToRGB(Random.Range(0, 0.99f), 0.38f, 1);
+        spd = Random.Range(minSpd, maxSpd);
+
+        base.Start();
     }
 
     public override void Update()
@@ -25,10 +25,7 @@ public class scrFantasma : scrEnemigoBase
 
         if (isColliding)
         {
-            if (scrplayer.invincible == false)
-            {
-                scrplayer.StartCoroutine(scrplayer.Golpe(daño));
-            }
+             scrplayer.StartCoroutine(scrplayer.Golpe(daño));
         }
 
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * spd);
