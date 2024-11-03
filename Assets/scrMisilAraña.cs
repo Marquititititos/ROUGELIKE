@@ -18,6 +18,7 @@ public class scrMisilAraña : MonoBehaviour
     public Rigidbody2D rb;
     public SpriteRenderer sr;
     public Vector3 direction;
+    public GameObject explosion;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,11 @@ public class scrMisilAraña : MonoBehaviour
         {
             direction = GameObject.Find("Player").transform.position - transform.position;
             transform.position = Vector2.MoveTowards(transform.position, GameObject.Find("Player").transform.position, Time.deltaTime * spd);
+
+            Vector3 rotation = transform.position - GameObject.Find("Player").transform.position;
+            float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, rot + 90);
+
         } else
         {
             rb.velocity = new Vector2(direction.x, direction.y).normalized * spd;
@@ -50,38 +56,16 @@ public class scrMisilAraña : MonoBehaviour
     {
         if (collision.gameObject.tag == "ColisionExterna")
         {
-            StartCoroutine(End());
+            Destroy(this.gameObject);
         }
 
         if (collision.gameObject.tag == "Player")
         {
-            if (sr.material = new Material(Shader.Find("Sprites/Default")))
-            {
-                StartCoroutine(End());
-                scrPlayer scrplayer = collision.gameObject.GetComponent<scrPlayer>();
-                scrplayer.StartCoroutine(scrplayer.Golpe(daño));
-            }
+            GameObject explo = Instantiate(explosion);
+            explo.transform.position = transform.position;
+            scrPlayer scrplayer = collision.gameObject.GetComponent<scrPlayer>();
+            scrplayer.StartCoroutine(scrplayer.Golpe(daño));
+            Destroy(this.gameObject);
         }
-    }
-
-    private IEnumerator Spawn()
-    {
-        sr.material = new Material(Shader.Find("GUI/Text Shader"));
-        yield return new WaitForSeconds(0.2f);
-        sr.material = new Material(Shader.Find("Sprites/Default"));
-    }
-
-    private IEnumerator End()
-    {
-        rb.velocity = new Vector2(0, 0);
-        sr.material = new Material(Shader.Find("GUI/Text Shader"));
-        while (sr.color.a > 0)
-        {
-            Color newColor = sr.color;
-            newColor.a -= 0.005f;
-            sr.color = newColor;
-            yield return null;
-        }
-        Destroy(this.gameObject);
     }
 }

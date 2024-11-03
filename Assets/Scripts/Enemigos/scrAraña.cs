@@ -6,6 +6,7 @@ public class scrAraña : scrEnemigoBase
 {
     public Transform attackPoint;
     public GameObject bola;
+    public GameObject impacto;
 
     public override void Start()
     {
@@ -35,14 +36,16 @@ public class scrAraña : scrEnemigoBase
     {
         GetComponent<scrPathFinding>().agent.speed = 0;
         canAttack = false;
-        //animator.SetFloat("anim", 1);
+        animator.SetFloat("anim", 1);
         yield return new WaitForSeconds(1.5f);
-        Instantiate(bola, attackPoint.position, Quaternion.identity);
-        //animator.SetFloat("anim", 2);
+        GameObject impact = Instantiate(impacto, attackPoint.position, Quaternion.identity);
+        GameObject misil = Instantiate(bola, attackPoint.position, Quaternion.identity);
+        misil.GetComponent<scrMisilAraña>().daño = daño;
+        animator.SetFloat("anim", 2);
         canAttack = true;
         cooldown = Random.Range(5, 8);
         yield return new WaitForSeconds(0.5f);
-        GetComponent<scrPathFinding>().agent.speed = GetComponent<scrPathFinding>().spd;
-        //animator.SetFloat("anim", 0);
+        GetComponent<scrPathFinding>().agent.speed = spd;
+        animator.SetFloat("anim", 0);
     }
 }

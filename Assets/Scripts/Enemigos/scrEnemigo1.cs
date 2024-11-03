@@ -55,7 +55,7 @@ public class scrEnemigo1 : scrEnemigoBase
 
         yield return new WaitForSeconds(cooldown);
 
-        GetComponent<scrPathFinding>().agent.speed = GetComponent<scrPathFinding>().spd;
+        GetComponent<scrPathFinding>().agent.speed = spd;
         animator.SetFloat("anim", 0);
         canAttack = true;
     }

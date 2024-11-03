@@ -6,11 +6,6 @@ public class scrFantasma : scrEnemigoBase
 {
     public bool isColliding;
 
-
-    public float maxSpd;
-    public float minSpd;
-    public float spd;
-
     public override void Start()
     {
         GetComponent<SpriteRenderer>().color = Color.HSVToRGB(Random.Range(0, 0.99f), 0.38f, 1);

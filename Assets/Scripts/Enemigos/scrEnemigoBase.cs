@@ -16,7 +16,10 @@ public abstract class scrEnemigoBase : MonoBehaviour
     public float cooldown;
     public float attackRange;
     public bool canAttack = true;
-    [HideInInspector] public Material materialBase;
+
+    public float maxSpd;
+    public float minSpd;
+    public float spd;
 
     //Objetos
 
@@ -26,9 +29,11 @@ public abstract class scrEnemigoBase : MonoBehaviour
     public Animator animator;
     private Color colorBase;
 
+    [HideInInspector] public Material materialBase;
 
     public virtual void Start()
     {
+        spd = Random.Range(minSpd, maxSpd);
         colorBase = GetComponent<SpriteRenderer>().color;
         player = GameObject.Find("Player");
         scrplayer = player.GetComponent<scrPlayer>();

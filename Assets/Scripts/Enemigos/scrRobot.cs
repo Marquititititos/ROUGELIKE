@@ -42,7 +42,7 @@ public class scrRobot : scrEnemigoBase
         canAttack = true;
         cooldown = Random.Range(5, 8);
         yield return new WaitForSeconds(0.5f);
-        GetComponent<scrPathFinding>().agent.speed = GetComponent<scrPathFinding>().spd;
+        GetComponent<scrPathFinding>().agent.speed = spd;
         animator.SetFloat("anim", 0);
     }
 }

@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -329169906, guid: 2974a723442d8274f85052dcd461e362, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -169,7 +169,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 200
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -195,13 +195,16 @@ MonoBehaviour:
   cooldown: 1
   attackRange: 0.82
   canAttack: 1
-  materialBase: {fileID: 0}
+  maxSpd: 5
+  minSpd: 3
+  spd: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
   player: {fileID: 0}
   scrplayer: {fileID: 0}
   animator: {fileID: 5784438879493116485}
+  materialBase: {fileID: 0}
   ataque1: {fileID: 3295557497981437032, guid: 79b11f4d9dcf2024b9ee805909aae1ef, type: 3}
   attackPoint: {fileID: 685925004297770453}
 --- !u!114 &7169583468939642320
@@ -218,9 +221,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   player: {fileID: 0}
-  maxSpd: 4
-  minSpd: 2
-  spd: 0
 --- !u!1 &7392039863912620903
 GameObject:
   m_ObjectHideFlags: 0

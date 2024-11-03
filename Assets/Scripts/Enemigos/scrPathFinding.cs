@@ -9,19 +9,14 @@ public class scrPathFinding : MonoBehaviour
     [HideInInspector] public NavMeshAgent agent;
     [HideInInspector] public GameObject player;
 
-    public float maxSpd;
-    public float minSpd;
-    public float spd;
-
     // Start is called before the first frame update
     void Start()
     {
-        spd = Random.Range(minSpd, maxSpd);
         player = GameObject.Find("Player");
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        agent.speed = spd;
+        agent.speed = GetComponent<scrEnemigoBase>().spd;
     }
 
     // Update is called once per frame
