@@ -6960,63 +6960,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
---- !u!1001 &1302500129
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2446769823260245824, guid: 519b17948bdbfbf4e8a7a5a5b9535ddd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -11.442418
-      objectReference: {fileID: 0}
-    - target: {fileID: 2446769823260245824, guid: 519b17948bdbfbf4e8a7a5a5b9535ddd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.775932
-      objectReference: {fileID: 0}
-    - target: {fileID: 2446769823260245824, guid: 519b17948bdbfbf4e8a7a5a5b9535ddd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2446769823260245824, guid: 519b17948bdbfbf4e8a7a5a5b9535ddd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2446769823260245824, guid: 519b17948bdbfbf4e8a7a5a5b9535ddd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2446769823260245824, guid: 519b17948bdbfbf4e8a7a5a5b9535ddd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2446769823260245824, guid: 519b17948bdbfbf4e8a7a5a5b9535ddd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2446769823260245824, guid: 519b17948bdbfbf4e8a7a5a5b9535ddd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2446769823260245824, guid: 519b17948bdbfbf4e8a7a5a5b9535ddd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2446769823260245824, guid: 519b17948bdbfbf4e8a7a5a5b9535ddd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668876813297175906, guid: 519b17948bdbfbf4e8a7a5a5b9535ddd, type: 3}
-      propertyPath: m_Name
-      value: Francotirador
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 519b17948bdbfbf4e8a7a5a5b9535ddd, type: 3}
 --- !u!1 &1335984939
 GameObject:
   m_ObjectHideFlags: 0
@@ -7279,6 +7222,10 @@ PrefabInstance:
     - target: {fileID: 1788965090635788000, guid: 9fa36c57aabb84d4f84edf18d3fcc8cc, type: 3}
       propertyPath: m_Name
       value: Pistola
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788965090635788000, guid: 9fa36c57aabb84d4f84edf18d3fcc8cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3242873873798120915, guid: 9fa36c57aabb84d4f84edf18d3fcc8cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8589,6 +8536,7 @@ MonoBehaviour:
   - {fileID: 6590952194965328496, guid: b8ac847c95e0b9f40bf0258d2f4286e3, type: 3}
   - {fileID: 4360232233721836207, guid: 9f0241b9f9f2c23488750cb9899857e2, type: 3}
   - {fileID: 4668876813297175906, guid: 519b17948bdbfbf4e8a7a5a5b9535ddd, type: 3}
+  - {fileID: 1839866117877194869, guid: c4c2367b736e87f479a11e2208410e32, type: 3}
   playerSpawnPos: {x: -6.5, y: 0}
   roomSpawner: {fileID: 0}
   player: {fileID: 0}
@@ -8769,8 +8717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridWidth: 20
   gridHeight: 10
-  objectNumber: 16
-  enemyNumber: 10
+  objectNumber: 8
+  enemyNumber: 6
   bloque: {fileID: 4247894225366768202, guid: e7073d3f18b7ef14d994c602ce9a8d29, type: 3}
   enemigos:
   - {fileID: 4871486834515376724, guid: 697ab4894db92a845a3de7a4b00562ea, type: 3}
@@ -8778,6 +8726,7 @@ MonoBehaviour:
   - {fileID: 7148683479499624673, guid: e38d2322046a902448259d14853b9d24, type: 3}
   - {fileID: 6274978743609937218, guid: d45904e578e060d4daefe318e461f377, type: 3}
   - {fileID: 4090685034202134709, guid: c196eae376860f242802914ef811b19a, type: 3}
+  - {fileID: 1313296127340194294, guid: ed99b4906edde5342916ad767013f985, type: 3}
   enviroment: {fileID: 7622916515428713695}
   aa: {fileID: 4247894225366768202, guid: 941ac21e50f855d47838210fd1229eab, type: 3}
   gridObjetos: []
@@ -8877,4 +8826,3 @@ SceneRoots:
   - {fileID: 1734664767998453216}
   - {fileID: 1510979006167983711}
   - {fileID: 1442898021}
-  - {fileID: 1302500129}
