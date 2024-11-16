@@ -24,9 +24,9 @@ public class scrPathFinding : MonoBehaviour
     {
         agent.SetDestination(player.transform.position);
 
-        if (agent.transform.position.x == player.transform.position.x)
+        if (transform.position.x == player.transform.position.x)
         {
-            agent.transform.position = new Vector2(agent.transform.position.x + 0.1f, agent.transform.position.y);
+            transform.localScale = new Vector2(1, 1);
         }
     }
 }

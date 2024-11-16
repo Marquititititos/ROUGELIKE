@@ -5,7 +5,8 @@ using UnityEngine;
 public class scrBombita : scrEnemigoBase
 {
 
-    public GameObject explosion; 
+    public GameObject explosion;
+    public bool isCuchillo = false;
 
     public override void Start()
     {
@@ -20,7 +21,13 @@ public class scrBombita : scrEnemigoBase
 
         if (hp < 1)
         {
-            explotar();
+            if (!isCuchillo)
+            {
+                explotar();
+            } else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

@@ -67,13 +67,29 @@ public abstract class scrEnemigoBase : MonoBehaviour
         }
     }
 
-    public IEnumerator Daño(float daño)
+    public IEnumerator Daño(float daño, bool cuchillo = false)
     {
+        if (cuchillo == true)
+        {
+            if (GetComponent<scrBombita>() != null)
+            {
+                GetComponent<scrBombita>().isCuchillo = true;
+            }
+        }
+
         hp -= daño;
         GetComponent<SpriteRenderer>().color = Color.white;
         GetComponent<SpriteRenderer>().material = new Material(Shader.Find("GUI/Text Shader"));
         yield return new WaitForSeconds(0.1f);
         GetComponent<SpriteRenderer>().color = colorBase;
         GetComponent<SpriteRenderer>().material = materialBase;
+
+        if (cuchillo == true)
+        {
+            if (GetComponent<scrBombita>() != null)
+            {
+                GetComponent<scrBombita>().isCuchillo = false;
+            }
+        }
     }
 }
