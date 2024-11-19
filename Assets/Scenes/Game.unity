@@ -176,7 +176,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: daa19983f440d6644a0485e0e78397f7, type: 2}
+  - {fileID: 2100000, guid: 244b901a38bc69a4f9f5a0c5df015c38, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8719,7 +8719,7 @@ MonoBehaviour:
   gridWidth: 20
   gridHeight: 10
   objectNumber: 8
-  enemyNumber: 5
+  enemyNumber: 6
   bloque: {fileID: 4247894225366768202, guid: e7073d3f18b7ef14d994c602ce9a8d29, type: 3}
   enemigos:
   - {fileID: 4871486834515376724, guid: 697ab4894db92a845a3de7a4b00562ea, type: 3}
@@ -8728,6 +8728,8 @@ MonoBehaviour:
   - {fileID: 6274978743609937218, guid: d45904e578e060d4daefe318e461f377, type: 3}
   - {fileID: 4090685034202134709, guid: c196eae376860f242802914ef811b19a, type: 3}
   - {fileID: 1313296127340194294, guid: ed99b4906edde5342916ad767013f985, type: 3}
+  - {fileID: 5556518299234583013, guid: dd59c94b0ccb629489faa3db0cf1bbb1, type: 3}
+  - {fileID: 450857055273566165, guid: 7471ad030c950fa4f86caa906420f30c, type: 3}
   enviroment: {fileID: 7622916515428713695}
   aa: {fileID: 4247894225366768202, guid: 941ac21e50f855d47838210fd1229eab, type: 3}
   gridObjetos: []

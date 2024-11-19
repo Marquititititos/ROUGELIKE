@@ -76,6 +76,7 @@ public abstract class scrArmaBase : MonoBehaviour
             }
         }
     }
+
 }
 
 

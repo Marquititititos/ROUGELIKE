@@ -61,6 +61,7 @@ public class scrCuchillo : scrArmaBase
             if (hit != null)
             {
                 hit.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+                hit.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
 
                 if (hit.gameObject.GetComponent<scrPathFinding>() == null)
                 {
