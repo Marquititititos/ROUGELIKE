@@ -12,7 +12,7 @@ public class scrCuervo : scrEnemigoBase
     {
         base.Start();
 
-        cooldown = Random.Range(5, 8);
+        cooldown = Random.Range(minCooldown, maxCooldown);
     }
 
     public override void Update()
@@ -44,7 +44,7 @@ public class scrCuervo : scrEnemigoBase
             yield return new WaitForSeconds(0.3f);
         }
         canAttack = true;
-        cooldown = Random.Range(5, 8);
+        cooldown = Random.Range(minCooldown, maxCooldown);
         yield return new WaitForSeconds(0.5f);
         GetComponent<scrPathFinding>().agent.speed = spd;
         animator.SetFloat("anim", 0);

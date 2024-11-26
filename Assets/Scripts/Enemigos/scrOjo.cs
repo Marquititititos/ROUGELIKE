@@ -15,7 +15,7 @@ public class scrOjo : scrEnemigoBase
         base.Start();
 
         GetComponent<scrPathFinding>().agent.speed = spd;
-        cooldown = Random.Range(5, 8);
+        cooldown = Random.Range(minCooldown, maxCooldown);
     }
 
     public override void Update()
@@ -90,7 +90,7 @@ public class scrOjo : scrEnemigoBase
 
 
         canAttack = true;
-        cooldown = Random.Range(5, 8);
+        cooldown = Random.Range(minCooldown, maxCooldown);
         yield return new WaitForSeconds(1);
         animator.SetFloat("anim", 0);
         yield return new WaitForSeconds(1);

@@ -215,9 +215,12 @@ MonoBehaviour:
   cooldown: 0
   attackRange: 0
   canAttack: 1
+  isFrozen: 0
   maxSpd: 5
   minSpd: 2
   spd: 0
+  minCooldown: 5
+  maxCooldown: 8
   playerLayer:
     serializedVersion: 2
     m_Bits: 8

@@ -205,6 +205,7 @@ MonoBehaviour:
   cooldown: 0
   attackRange: 0
   canAttack: 1
+  isFrozen: 0
   maxSpd: 4
   minSpd: 3
   spd: 0
@@ -217,6 +218,8 @@ MonoBehaviour:
   materialBase: {fileID: 0}
   attackPoint: {fileID: 4443599791853686136}
   bola: {fileID: 6340528482211868010, guid: dd3394cf7688b184e8dcdc8fe0c0d967, type: 3}
+  minCooldown: 5
+  maxCooldown: 8
 --- !u!195 &6710438275159432177
 NavMeshAgent:
   m_ObjectHideFlags: 0

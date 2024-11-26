@@ -139,6 +139,7 @@ MonoBehaviour:
   cooldown: 0
   attackRange: 0
   canAttack: 1
+  isFrozen: 0
   maxSpd: 3
   minSpd: 2
   spd: 0
@@ -152,6 +153,8 @@ MonoBehaviour:
   attackPoint: {fileID: 3237956622760076703}
   bola: {fileID: 4018922740722381339, guid: cea95560bb668f34fbb5cf2768d8cba3, type: 3}
   impacto: {fileID: 5308045598022660093, guid: 1735e4c64021c15428ef61548cd02a96, type: 3}
+  minCooldown: 8
+  maxCooldown: 10
 --- !u!114 &6612547698949549674
 MonoBehaviour:
   m_ObjectHideFlags: 0

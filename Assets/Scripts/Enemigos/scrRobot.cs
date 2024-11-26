@@ -12,7 +12,7 @@ public class scrRobot : scrEnemigoBase
     {
         base.Start();
 
-        cooldown = Random.Range(5, 8);
+        cooldown = Random.Range(minCooldown, maxCooldown);
     }
 
     public override void Update()
@@ -40,7 +40,7 @@ public class scrRobot : scrEnemigoBase
         Instantiate(bola, attackPoint.position, Quaternion.identity);
         animator.SetFloat("anim", 2);
         canAttack = true;
-        cooldown = Random.Range(5, 8);
+        cooldown = Random.Range(minCooldown, maxCooldown);
         yield return new WaitForSeconds(0.5f);
         GetComponent<scrPathFinding>().agent.speed = spd;
         animator.SetFloat("anim", 0);

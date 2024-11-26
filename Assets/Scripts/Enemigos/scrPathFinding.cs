@@ -28,5 +28,10 @@ public class scrPathFinding : MonoBehaviour
         {
             transform.localScale = new Vector2(1, 1);
         }
+
+        if (GetComponent<scrEnemigoBase>().isFrozen)
+        {
+            agent.isStopped = true;
+        } 
     }
 }

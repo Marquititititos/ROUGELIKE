@@ -16,10 +16,14 @@ public abstract class scrEnemigoBase : MonoBehaviour
     public float cooldown;
     public float attackRange;
     public bool canAttack = true;
+    public bool isFrozen = false;
 
     public float maxSpd;
     public float minSpd;
     public float spd;
+
+    public float minCooldown;
+    public float maxCooldown;
 
     //Objetos
 

@@ -12,7 +12,7 @@ public class scrAraña : scrEnemigoBase
     {
         base.Start();
 
-        cooldown = Random.Range(8, 14);
+        cooldown = Random.Range(minCooldown, maxCooldown);
     }
 
     public override void Update()
@@ -43,7 +43,7 @@ public class scrAraña : scrEnemigoBase
         misil.GetComponent<scrMisilAraña>().daño = daño;
         animator.SetFloat("anim", 2);
         canAttack = true;
-        cooldown = Random.Range(5, 8);
+        cooldown = Random.Range(minCooldown, maxCooldown);
         yield return new WaitForSeconds(0.5f);
         GetComponent<scrPathFinding>().agent.speed = spd;
         animator.SetFloat("anim", 0);

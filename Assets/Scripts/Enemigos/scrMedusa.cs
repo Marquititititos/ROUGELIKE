@@ -42,7 +42,7 @@ public class scrMedusa : scrEnemigoBase
         }
     }
 
-    private IEnumerator Movimiento()
+    public IEnumerator Movimiento()
     {
         GetComponent<scrPathFinding>().agent.speed = spd;
         GetComponent<scrPathFinding>().agent.isStopped = true;

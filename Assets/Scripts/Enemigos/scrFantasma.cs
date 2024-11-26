@@ -5,11 +5,13 @@ using UnityEngine;
 public class scrFantasma : scrEnemigoBase
 {
     public bool isColliding;
+    private float speedSave;
 
     public override void Start()
     {
         GetComponent<SpriteRenderer>().color = Color.HSVToRGB(Random.Range(0, 0.99f), 0.38f, 1);
         spd = Random.Range(minSpd, maxSpd);
+        speedSave = spd;
 
         base.Start();
     }
@@ -25,12 +27,24 @@ public class scrFantasma : scrEnemigoBase
 
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * spd);
 
-        if (Vector2.Distance(transform.position, player.transform.position) < 0.1f)
+        if (isFrozen == false)
         {
-            canAttack = false;
+            if (Vector2.Distance(transform.position, player.transform.position) < 0.1f)
+            {
+                canAttack = false;
+            }
+            else
+            {
+                canAttack = true;
+            }
+        }
+
+        if (isFrozen)
+        {
+            spd = 0;
         } else
         {
-            canAttack = true;
+            spd = speedSave;
         }
     } 
   

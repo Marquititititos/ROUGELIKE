@@ -176,7 +176,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 244b901a38bc69a4f9f5a0c5df015c38, type: 2}
+  - {fileID: 2100000, guid: bbbd04bbbae7e454ebbb5ee28f4efa6f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5286,6 +5286,58 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!1 &539126184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 539126186}
+  - component: {fileID: 539126185}
+  m_Layer: 0
+  m_Name: "Congelaci\xF3n"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &539126185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539126184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8172ca1fbedb3b94abdeeaf5d9bcc010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 20
+  "da\xF1o": 0
+  enemigosLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  enemigos: []
+  hielo: {fileID: 7424622152548587152, guid: 764ecb6dbb5a7e64c875d87426200b86, type: 3}
+  cooldownHielo: 5
+--- !u!4 &539126186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539126184}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.042804, y: 0.9863808, z: -0.5551388}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &550679733
 GameObject:
   m_ObjectHideFlags: 0
@@ -8412,6 +8464,7 @@ GameObject:
   - component: {fileID: 7911118162879726413}
   - component: {fileID: 5108847412384885112}
   - component: {fileID: 550446957525166645}
+  - component: {fileID: 8875460669640259144}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -8815,6 +8868,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &8875460669640259144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3675718374898494657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16de8906206571f408f130d5af02a906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poderes:
+  - {fileID: 7218613728971158438, guid: 1624270c8c7a6e94695e3eccd84273da, type: 3}
+  poder: {fileID: 0}
+  canPoder: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -8829,3 +8898,4 @@ SceneRoots:
   - {fileID: 1734664767998453216}
   - {fileID: 1510979006167983711}
   - {fileID: 1442898021}
+  - {fileID: 539126186}
