@@ -15,7 +15,7 @@ public class scrRoomSpawner : MonoBehaviour
     //Objetos
 
     public GameObject bloque;
-    public GameObject[] enemigos;
+    public List<GameObject> enemigos = new List<GameObject>();
     public GameObject enviroment;
     public GameObject aa;
     public List<Vector2> gridObjetos = new List<Vector2>();
@@ -36,6 +36,11 @@ public class scrRoomSpawner : MonoBehaviour
 
     public void Spawnear()
     {
+
+        GameObject.Find("Player").GetComponent<scrPlayer>().isBurbuja = false;
+        GameObject.Find("Player").GetComponent<scrPlayer>().invincible = false;
+        GameObject.Find("Player").GetComponent<scrPoderes>().StopAllCoroutines();
+        GameObject.Find("Player").GetComponent<scrPoderes>().canPoder = true;
 
         gridObjetos.Clear();
         gridEnemigos.Clear();
@@ -82,7 +87,7 @@ public class scrRoomSpawner : MonoBehaviour
         //Spawnear enemigos
         for (int i = 0; i < enemyNumber; i++)
         {
-            GameObject enemigo = Instantiate(enemigos[Random.Range(0, enemigos.Length)]);
+            GameObject enemigo = Instantiate(enemigos[Random.Range(0, enemigos.Count)]);
             instancias.Add(enemigo);
 
             if (enemigo.GetComponent<NavMeshAgent>() != null)

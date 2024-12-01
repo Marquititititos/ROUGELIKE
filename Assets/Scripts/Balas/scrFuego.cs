@@ -32,9 +32,12 @@ public class scrFuego : MonoBehaviour
                 {
                     foreach (GameObject enemigo in enemigosParaDañar)
                     {
-                        if (enemigo.GetComponent<scrEnemigoBase>() != null)
+                        if (enemigo != null)
                         {
-                            enemigo.GetComponent<scrEnemigoBase>().StartCoroutine(enemigo.GetComponent<scrEnemigoBase>().Daño(lanzallamas.GetComponent<scrLanzallamas>().daño));
+                            if (enemigo.GetComponent<scrEnemigoBase>() != null)
+                            {
+                                enemigo.GetComponent<scrEnemigoBase>().StartCoroutine(enemigo.GetComponent<scrEnemigoBase>().Daño(lanzallamas.GetComponent<scrLanzallamas>().daño));
+                            }
                         }
                     }
 

@@ -7,7 +7,7 @@ public class scrPlayer : MonoBehaviour
 {
     //Variables
 
-    public float hp = 100;
+    public float hp = 50;
     public float spd;
 
     public float dashSpd;
@@ -18,15 +18,16 @@ public class scrPlayer : MonoBehaviour
     private bool isRight = true;
 
     public bool invincible = false;
+    public bool isBurbuja;
     
 
     //Objetos
 
     public Rigidbody2D rb;
     private Vector2 direccion;
-    public Text txtHp;
     public Animator animator;
     public TrailRenderer tr;
+    public GameObject[] vidas;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,10 @@ public class scrPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isBurbuja)
+        {
+            invincible = true;
+        }
 
         if (isDashing == false)
         {
@@ -63,8 +68,6 @@ public class scrPlayer : MonoBehaviour
                 }
             }
         }
-
-        txtHp.text = hp.ToString();
 
         Flip();
     }
@@ -103,10 +106,13 @@ public class scrPlayer : MonoBehaviour
     {
         if (invincible == false)
         {
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
             hp -= daño;
             invincible = true;
+            vidas[(int)hp / 10].GetComponent<Animator>().SetTrigger("golpe");
             yield return new WaitForSeconds(2);
             invincible = false;
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
     }
 }

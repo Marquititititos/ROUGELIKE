@@ -15,6 +15,8 @@ public class scrOndaDeChoque : scrPoderBase
             hit.GetComponent<scrEnemigoBase>().StartCoroutine(hit.GetComponent<scrEnemigoBase>().Daño(daño));
             StartCoroutine(empuje(hit));
         }
+
+        GetComponentInParent<scrPoderes>().StartCoroutine(GetComponentInParent<scrPoderes>().cooldown(cooldownReuso));
     }
 
     private IEnumerator empuje(Collider2D hit)

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2403208235a084f85fea44eac7ffe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 1.5
+  cooldown: 1
   canShoot: 1
   "da\xF1o": 1.5
   posPlayer: {fileID: 0}

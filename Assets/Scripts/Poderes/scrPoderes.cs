@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class scrPoderes : MonoBehaviour
 {
     //Objetos
 
+    public Text cooldownPoderText;
     public GameObject[] poderes;
     public GameObject poder;
 
@@ -16,26 +18,28 @@ public class scrPoderes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        poder = poderes[Random.Range(0, poderes.Length)];
         canPoder = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        cooldownPoderText.text = canPoder.ToString();
         if (Input.GetMouseButtonDown(1)) {
             if (canPoder)
             {
-                StartCoroutine(Poder());
+                if (poder != null)
+                {
+                    canPoder = false;
+                    Instantiate(poder, transform.position, Quaternion.identity);
+                }
             }
         }
     }
 
-    private IEnumerator Poder()
+    public IEnumerator cooldown(float cooldown)
     {
-        canPoder = false;
-        Instantiate(poder, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(poder.GetComponent<scrPoderBase>().cooldown);
+        yield return new WaitForSeconds(cooldown);
         canPoder = true;
     }
 }

@@ -6,5 +6,6 @@ public class scrPoderBase : MonoBehaviour
 {
     public float cooldown;
     public float daño;
+    public float cooldownReuso;
     public LayerMask enemigosLayer;
 }
