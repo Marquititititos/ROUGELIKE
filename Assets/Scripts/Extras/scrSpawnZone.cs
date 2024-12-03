@@ -16,8 +16,17 @@ public class scrSpawnZone : MonoBehaviour
     public GameObject roomSpawner;
     public GameObject player;
     public Image BlackScreen;
+    public Image BlackScreen2;
     public GameObject[] armas;
+    private int armaSeleccionada;
     public List<GameObject> enemigosPosibles = new List<GameObject>();
+
+    public GameObject cartelArma;
+    public GameObject cartelPoder;
+    public Image íconoArma;
+    public Image íconoPoder;
+    public List<Sprite> íconosArmas = new List<Sprite>();
+    public List<Sprite> íconosPoderes = new List<Sprite>();
 
     private void Start()
     {
@@ -43,11 +52,12 @@ public class scrSpawnZone : MonoBehaviour
         {
             newColor.a += 0.01f;
             BlackScreen.GetComponent<Image>().color = newColor;
+            BlackScreen2.GetComponent<Image>().color = newColor;
             yield return null;
         }
 
         scrRoomSpawner roomSpawnerScript = roomSpawner.GetComponent<scrRoomSpawner>();
- 
+
         foreach (GameObject instancia in roomSpawnerScript.instancias)
         {
             Destroy(instancia);
@@ -57,16 +67,48 @@ public class scrSpawnZone : MonoBehaviour
 
         player.transform.position = new Vector2(-11.5f, -0.5f);
 
-        foreach(GameObject balas in GameObject.FindGameObjectsWithTag("DestruirEnRespawn"))
+        foreach (GameObject balas in GameObject.FindGameObjectsWithTag("DestruirEnRespawn"))
         {
             Destroy(balas);
         }
 
+        armaSeleccionada = Random.Range(0, armas.Length);
+
         Destroy(GameObject.FindGameObjectWithTag("Arma"));
-        Instantiate(armas[Random.Range(0, armas.Length)]);
+        Instantiate(armas[armaSeleccionada]);
         player.GetComponent<scrPoderes>().poder = player.GetComponent<scrPoderes>().poderes[Random.Range(0, player.GetComponent<scrPoderes>().poderes.Length)];
         roomSpawnerScript.objectNumber = Random.Range(5, 15);
 
+        cartelArma.SetActive(true);
+        cartelPoder.SetActive(true);
+
+        cartelArma.GetComponent<Image>().rectTransform.anchoredPosition = new Vector2(-133.1f, 22);
+
+        íconoArma.GetComponent<Image>().enabled = false;
+
+        while (BlackScreen2.GetComponent<Image>().color.a > 0)
+        {
+            newColor.a -= 0.01f;
+            BlackScreen2.GetComponent<Image>().color = newColor;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.15f);
+
+        íconoArma.GetComponent<Image>().enabled = true;
+
+        for (int i = 0; i < íconosArmas.Count; i++)
+        {
+            if (i != armaSeleccionada)
+            {
+                íconoArma.sprite = íconosArmas[i];
+                yield return new WaitForSeconds(0.2f);
+            }
+        }
+
+        íconoArma.sprite = íconosArmas[armaSeleccionada];
+
+        yield return new WaitForSeconds(0.5f);
 
         //Añadir enemigos
 
@@ -83,7 +125,7 @@ public class scrSpawnZone : MonoBehaviour
             }
         }
 
-        switch(ronda)
+        switch (ronda)
         {
             case 2:
                 roomSpawnerScript.enemigos.Add(enemigosPosibles[1]);
@@ -115,11 +157,19 @@ public class scrSpawnZone : MonoBehaviour
 
         roomSpawnerScript.Spawnear();
 
+        Color newColor2 = new Color(0, 0, 0, 1);
+
         while (BlackScreen.GetComponent<Image>().color.a > 0)
         {
-            newColor.a -= 0.01f;
-            BlackScreen.GetComponent<Image>().color = newColor;
+            newColor2.a -= 0.01f;
+            BlackScreen.GetComponent<Image>().color = newColor2;
             yield return null;
+        }
+
+        while(cartelArma.GetComponent<Image>().rectTransform.anchoredPosition.y < 600)
+        {
+            cartelArma.GetComponent<Image>().rectTransform.anchoredPosition = new Vector2(cartelArma.GetComponent<Image>().rectTransform.anchoredPosition.x, cartelArma.GetComponent<Image>().rectTransform.anchoredPosition.y + 0.1f * Time.deltaTime);
+            cartelPoder.GetComponent<Image>().rectTransform.anchoredPosition = new Vector2(cartelPoder.GetComponent<Image>().rectTransform.anchoredPosition.x, cartelPoder.GetComponent<Image>().rectTransform.anchoredPosition.y + 0.1f * Time.deltaTime);
         }
     }
 
