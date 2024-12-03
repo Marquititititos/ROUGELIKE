@@ -166,10 +166,10 @@ public class scrSpawnZone : MonoBehaviour
             yield return null;
         }
 
-        while(cartelArma.GetComponent<Image>().rectTransform.anchoredPosition.y < 600)
+        while (cartelArma.GetComponent<Image>().rectTransform.anchoredPosition.y < 600)
         {
-            cartelArma.GetComponent<Image>().rectTransform.anchoredPosition = new Vector2(cartelArma.GetComponent<Image>().rectTransform.anchoredPosition.x, cartelArma.GetComponent<Image>().rectTransform.anchoredPosition.y + 0.1f * Time.deltaTime);
-            cartelPoder.GetComponent<Image>().rectTransform.anchoredPosition = new Vector2(cartelPoder.GetComponent<Image>().rectTransform.anchoredPosition.x, cartelPoder.GetComponent<Image>().rectTransform.anchoredPosition.y + 0.1f * Time.deltaTime);
+            cartelArma.GetComponent<Image>().rectTransform.anchoredPosition = new Vector2(cartelArma.GetComponent<Image>().rectTransform.anchoredPosition.x, cartelArma.GetComponent<Image>().rectTransform.anchoredPosition.y + 0.25f);
+            cartelPoder.GetComponent<Image>().rectTransform.anchoredPosition = new Vector2(cartelPoder.GetComponent<Image>().rectTransform.anchoredPosition.x, cartelPoder.GetComponent<Image>().rectTransform.anchoredPosition.y + 0.25f);
         }
     }
 
