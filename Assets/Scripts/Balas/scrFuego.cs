@@ -19,7 +19,7 @@ public class scrFuego : MonoBehaviour
     {
         if (enemigosEnFuego.Count > 0)
         {
-            if (cooldown < 0.5f)
+            if (cooldown < GetComponentInParent<scrLanzallamas>().cooldown)
             {
                 cooldown += Time.deltaTime;
             } else

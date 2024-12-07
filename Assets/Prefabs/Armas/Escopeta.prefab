@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 6161549038305427867}
   - component: {fileID: 2011443572510177946}
   - component: {fileID: 7904367174080869540}
+  - component: {fileID: -3196425569684376297}
   m_Layer: 0
   m_Name: Escopeta
   m_TagString: Arma
@@ -137,3 +138,17 @@ MonoBehaviour:
   explosion: {fileID: 7868997956364987727, guid: 3f11b9d5676c92444a21f89a39fcb059, type: 3}
   balaTransform: {fileID: 6979240204246698327}
   player: {fileID: 0}
+--- !u!114 &-3196425569684376297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590952194965328496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74a285b071ef90940a8eb51b99ade647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "t\xEDtulo": SHOTGUN
+  desc: MORE BULLETS FOR SHORT DISTANCES

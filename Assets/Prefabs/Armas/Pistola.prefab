@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 3242873873798120915}
   - component: {fileID: 6198616047281684730}
   - component: {fileID: 2909919170540882835}
+  - component: {fileID: 2929577334750632160}
   m_Layer: 0
   m_Name: Pistola
   m_TagString: Arma
@@ -137,3 +138,17 @@ MonoBehaviour:
   explosion: {fileID: 7868997956364987727, guid: 3f11b9d5676c92444a21f89a39fcb059, type: 3}
   balaTransform: {fileID: 3416836894245298592}
   player: {fileID: 0}
+--- !u!114 &2929577334750632160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788965090635788000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74a285b071ef90940a8eb51b99ade647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "t\xEDtulo": PISTOL
+  desc: BASIC GUN WITH STANDARD SPEED

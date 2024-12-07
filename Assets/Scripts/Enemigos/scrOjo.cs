@@ -63,8 +63,8 @@ public class scrOjo : scrEnemigoBase
                 GameObject cura = Instantiate(curacion, hit.transform.position, Quaternion.identity);
                 particulas.Add(cura);
                 cura.GetComponent<ParticleSystem>().Play();
-                cura.transform.SetParent(hit.gameObject.transform);
                 cura.transform.localScale = new Vector2(1, 1);
+                cura.transform.position = new Vector3(cura.transform.position.x, cura.transform.position.y, -0.5f);
             }
         }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2446769823260245824}
   - component: {fileID: 5419305128765042836}
   - component: {fileID: 5615848715316534821}
+  - component: {fileID: -4513950332890852200}
   m_Layer: 0
   m_Name: Francotirador
   m_TagString: Arma
@@ -106,6 +107,20 @@ MonoBehaviour:
   explosion: {fileID: 7868997956364987727, guid: 3f11b9d5676c92444a21f89a39fcb059, type: 3}
   balaTransform: {fileID: 7485610087758538713}
   player: {fileID: 0}
+--- !u!114 &-4513950332890852200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4668876813297175906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74a285b071ef90940a8eb51b99ade647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "t\xEDtulo": SNIPER
+  desc: FASTER BULLETS WITH HIGHER DAMAGE
 --- !u!1 &7960980568315359854
 GameObject:
   m_ObjectHideFlags: 0

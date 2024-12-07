@@ -126,6 +126,8 @@ MonoBehaviour:
   enemigosLayer:
     serializedVersion: 2
     m_Bits: 256
+  "t\xEDtulo": ELECTRIC ZONE
+  desc: HITS NEARBY TARGETS PER SECOND
   enemigosEnZona: []
   duracion: 10
   cooldownZona: 0

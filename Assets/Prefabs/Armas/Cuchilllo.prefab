@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 8955790578731055182}
   - component: {fileID: 2300241730184088203}
   - component: {fileID: 3402553388997021286}
+  - component: {fileID: 9068005647270062225}
   m_Layer: 0
   m_Name: Cuchilllo
   m_TagString: Arma
@@ -141,3 +142,17 @@ MonoBehaviour:
   enemigosLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &9068005647270062225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7854932535831512337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74a285b071ef90940a8eb51b99ade647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "t\xEDtulo": KNIFE
+  desc: HITS AND PUSHES AT SHORT DISTANCES

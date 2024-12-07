@@ -41,7 +41,7 @@ public class scrEnemigo1 : scrEnemigoBase
         GetComponent<scrPathFinding>().agent.speed = 0;
         canAttack = false;
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         animator.SetFloat("anim", 2);
         Collider2D[] playerC = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);

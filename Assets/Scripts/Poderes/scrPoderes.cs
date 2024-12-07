@@ -8,7 +8,6 @@ public class scrPoderes : MonoBehaviour
     //Objetos
 
     public Text cooldownPoderText;
-    public GameObject[] poderes;
     public GameObject poder;
 
     //Variables

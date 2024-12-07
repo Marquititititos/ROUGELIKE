@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5790558371315531353}
   m_Layer: 0
   m_Name: Potencia
-  m_TagString: Untagged
+  m_TagString: DestruirEnRespawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +125,5 @@ MonoBehaviour:
   enemigosLayer:
     serializedVersion: 2
     m_Bits: 0
+  "t\xEDtulo": UPGRADE
+  desc: TEMPORARILY IMPROVES GUN STATS

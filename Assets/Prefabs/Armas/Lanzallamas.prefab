@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5038598508554976522}
   - component: {fileID: 8489536879959971599}
   - component: {fileID: 3877166630771002908}
+  - component: {fileID: 8700954767759071593}
   m_Layer: 0
   m_Name: Lanzallamas
   m_TagString: Arma
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79d7ddd671f41c7479c581715bdef502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  cooldown: 0.5
   canShoot: 1
   "da\xF1o": 0.7
   posPlayer: {fileID: 0}
@@ -107,6 +108,20 @@ MonoBehaviour:
   balaTransform: {fileID: 0}
   player: {fileID: 0}
   anim: {fileID: 6901149462537762276}
+--- !u!114 &8700954767759071593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360232233721836207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74a285b071ef90940a8eb51b99ade647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "t\xEDtulo": FLAMETHROWER
+  desc: HOLD FOR DEALING DAMAGE PER SECOND
 --- !u!1 &4656188665278026264
 GameObject:
   m_ObjectHideFlags: 0

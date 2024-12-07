@@ -106,13 +106,16 @@ public class scrPlayer : MonoBehaviour
     {
         if (invincible == false)
         {
-            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
-            hp -= daño;
-            invincible = true;
-            vidas[(int)hp / 10].GetComponent<Animator>().SetTrigger("golpe");
-            yield return new WaitForSeconds(2);
-            invincible = false;
-            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            if (hp > 0)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
+                hp -= daño;
+                invincible = true;
+                vidas[(int)hp / 10].GetComponent<Animator>().SetTrigger("golpe");
+                yield return new WaitForSeconds(2);
+                invincible = false;
+                GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            }
         }
     }
 }

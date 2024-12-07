@@ -50,6 +50,8 @@ MonoBehaviour:
   enemigosLayer:
     serializedVersion: 2
     m_Bits: 256
+  "t\xEDtulo": FREEZING
+  desc: TEMPORARILY STOPS ALL TARGETS
   enemigos: []
   hielos: []
   hielo: {fileID: 7424622152548587152, guid: 764ecb6dbb5a7e64c875d87426200b86, type: 3}

@@ -67,7 +67,10 @@ public class scrElectroshock : scrPoderBase
                     {
                         if (enemigo.GetComponent<scrEnemigoBase>() != null)
                         {
-                            enemigo.GetComponent<scrEnemigoBase>().StartCoroutine(enemigo.GetComponent<scrEnemigoBase>().Daño(daño));
+                            if (enemigo != null)
+                            {
+                                enemigo.GetComponent<scrEnemigoBase>().StartCoroutine(enemigo.GetComponent<scrEnemigoBase>().Daño(daño));
+                            }
                         }
                     }
 

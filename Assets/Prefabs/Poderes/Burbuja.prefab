@@ -125,3 +125,5 @@ MonoBehaviour:
   enemigosLayer:
     serializedVersion: 2
     m_Bits: 0
+  "t\xEDtulo": BUBBLE
+  desc: BECOMES TEMPORARILY INVINCIBLE

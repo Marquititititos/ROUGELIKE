@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3832844149707682131}
   - component: {fileID: -8104008347305516293}
+  - component: {fileID: -4570764802618571766}
   m_Layer: 0
   m_Name: Metralleta
   m_TagString: Arma
@@ -53,6 +54,20 @@ MonoBehaviour:
   explosion: {fileID: 1132065869638844668}
   balaTransform: {fileID: 4222535566990957398}
   player: {fileID: 0}
+--- !u!114 &-4570764802618571766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370042202172785185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74a285b071ef90940a8eb51b99ade647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "t\xEDtulo": SUBMACHINE GUN
+  desc: FASTER FIRE RATE AND LOWER DAMAGE
 --- !u!1 &1448540132476017770
 GameObject:
   m_ObjectHideFlags: 0

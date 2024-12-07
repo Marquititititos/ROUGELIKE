@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7072970280955653306}
   - component: {fileID: 5924311906471734065}
   - component: {fileID: 4661626325156965537}
+  - component: {fileID: -8438020148268205123}
   m_Layer: 0
   m_Name: "Arma L\xE1ser"
   m_TagString: Arma
@@ -111,6 +112,20 @@ MonoBehaviour:
   enemigosLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &-8438020148268205123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839866117877194869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74a285b071ef90940a8eb51b99ade647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "t\xEDtulo": LASER GUN
+  desc: HITS MULTIPLE TARGETS THROUGH WALLS
 --- !u!1 &2610279576977582143
 GameObject:
   m_ObjectHideFlags: 0
