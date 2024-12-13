@@ -48,6 +48,7 @@ public class scrOjo : scrEnemigoBase
 
     private IEnumerator Ataque()
     {
+        isAttacking = true;
         GetComponent<scrPathFinding>().agent.speed = 0;
         canAttack = false;
         animator.SetFloat("anim", 1);
@@ -95,5 +96,6 @@ public class scrOjo : scrEnemigoBase
         animator.SetFloat("anim", 0);
         yield return new WaitForSeconds(1);
         GetComponent<scrPathFinding>().agent.speed = spd;
+        isAttacking = false;
     }
 }

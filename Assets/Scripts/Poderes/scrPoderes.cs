@@ -25,7 +25,7 @@ public class scrPoderes : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (canPoder)
+            if (canPoder && GetComponent<scrPlayer>().isAlive)
             {
                 if (poder != null)
                 {

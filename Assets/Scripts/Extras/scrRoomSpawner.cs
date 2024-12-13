@@ -14,10 +14,9 @@ public class scrRoomSpawner : MonoBehaviour
 
     //Objetos
 
-    public GameObject bloque;
+    public List<GameObject> bloques;
     public List<GameObject> enemigos = new List<GameObject>();
     public GameObject enviroment;
-    public GameObject aa;
     public List<Vector2> gridObjetos = new List<Vector2>();
     public List<Vector2> gridEnemigos = new List<Vector2>();
     public List<GameObject> instancias = new List<GameObject>();
@@ -70,7 +69,7 @@ public class scrRoomSpawner : MonoBehaviour
         {
             if (gridObjetos.Count > 0)
             {
-                GameObject objeto = Instantiate(bloque);
+                GameObject objeto = Instantiate(bloques[Random.Range(0, bloques.Count)]);
                 objeto.transform.SetParent(enviroment.transform);
                 instancias.Add(objeto);
                 objeto.transform.position = gridObjetos[Random.Range(0, gridObjetos.Count)];

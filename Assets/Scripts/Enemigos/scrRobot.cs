@@ -33,6 +33,7 @@ public class scrRobot : scrEnemigoBase
 
     private IEnumerator Ataque()
     {
+        isAttacking = true;
         GetComponent<scrPathFinding>().agent.speed = 0;
         canAttack = false;
         animator.SetFloat("anim", 1);
@@ -44,5 +45,6 @@ public class scrRobot : scrEnemigoBase
         yield return new WaitForSeconds(0.5f);
         GetComponent<scrPathFinding>().agent.speed = spd;
         animator.SetFloat("anim", 0);
+        isAttacking = false;
     }
 }

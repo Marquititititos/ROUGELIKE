@@ -40,6 +40,7 @@ public class scrCongelación : scrPoderBase
             enemigo.GetComponent<scrEnemigoBase>().StopAllCoroutines();
             enemigo.GetComponent<scrEnemigoBase>().canAttack = false;
             enemigo.GetComponent<scrEnemigoBase>().isFrozen = true;
+            enemigo.GetComponent<scrEnemigoBase>().isAttacking = false;
 
             enemigo.GetComponent<Animator>().Rebind();
             enemigo.GetComponent<Animator>().speed = 0;

@@ -17,6 +17,7 @@ public abstract class scrEnemigoBase : MonoBehaviour
     public float attackRange;
     public bool canAttack = true;
     public bool isFrozen = false;
+    public bool isAttacking = false;
 
     public float maxSpd;
     public float minSpd;

@@ -19,7 +19,7 @@ public class scrPlayer : MonoBehaviour
 
     public bool invincible = false;
     public bool isBurbuja;
-    private bool isAlive = true;
+    [HideInInspector] public bool isAlive = true;
     
 
     //Objetos
@@ -138,6 +138,7 @@ public class scrPlayer : MonoBehaviour
             {
                 if (isAlive)
                 {
+                    vidas[(int)hp / 10].GetComponent<Animator>().SetTrigger("golpe");
                     animator.SetTrigger("Death");
                     Instantiate(explosionMuerte, transform.position, Quaternion.identity);
                     Destroy(GameObject.FindGameObjectWithTag("Arma"));

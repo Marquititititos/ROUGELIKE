@@ -29,7 +29,12 @@ public class scrCuchillo : scrArmaBase
             {
                 if (hit.gameObject.GetComponent<Rigidbody2D>() != null)
                 {
-                    StartCoroutine(Ataque(hit));
+                    hit.gameObject.GetComponent<scrEnemigoBase>().StartCoroutine(hit.gameObject.GetComponent<scrEnemigoBase>().Daño(daño, true));
+
+                    if (hit.gameObject.GetComponent<scrEnemigoBase>().isAttacking == false)
+                    {
+                        StartCoroutine(Ataque(hit));
+                    }
                 }
             }
         }
@@ -56,8 +61,6 @@ public class scrCuchillo : scrArmaBase
                     screnemigo.GetComponent<NavMeshAgent>().velocity = new Vector2(0,0);
                 }
             }
-
-            screnemigo.StartCoroutine(hit.gameObject.GetComponent<scrEnemigoBase>().Daño(daño, true));
 
             yield return new WaitForSeconds(0.3f);
 

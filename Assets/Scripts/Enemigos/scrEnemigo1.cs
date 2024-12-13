@@ -37,7 +37,7 @@ public class scrEnemigo1 : scrEnemigoBase
 
     private IEnumerator Atacar()
     {
-
+        isAttacking = true;
         GetComponent<scrPathFinding>().agent.speed = 0;
         canAttack = false;
 
@@ -58,6 +58,7 @@ public class scrEnemigo1 : scrEnemigoBase
         GetComponent<scrPathFinding>().agent.speed = spd;
         animator.SetFloat("anim", 0);
         canAttack = true;
+        isAttacking = false;
     }
 
     private void OnDrawGizmosSelected()

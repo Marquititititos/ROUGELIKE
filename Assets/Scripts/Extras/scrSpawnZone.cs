@@ -71,6 +71,7 @@ public class scrSpawnZone : MonoBehaviour
 
         ronda++;
         txtRonda.text = "ROUND " + ronda.ToString();
+        GameObject.Find("Background").GetComponent<scrBackground>().fondo = Random.Range(0, 4);
 
         scrRoomSpawner roomSpawnerScript = roomSpawner.GetComponent<scrRoomSpawner>();
 
