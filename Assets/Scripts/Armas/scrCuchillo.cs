@@ -51,7 +51,10 @@ public class scrCuchillo : scrArmaBase
         
             else
             {
-                screnemigo.GetComponent<NavMeshAgent>().isStopped = true;
+                if (screnemigo.isFrozen == false)
+                {
+                    screnemigo.GetComponent<NavMeshAgent>().velocity = new Vector2(0,0);
+                }
             }
 
             screnemigo.StartCoroutine(hit.gameObject.GetComponent<scrEnemigoBase>().Daño(daño, true));
@@ -66,10 +69,6 @@ public class scrCuchillo : scrArmaBase
                 if (hit.gameObject.GetComponent<scrPathFinding>() == null)
                 {
                     screnemigo.spd = speed;
-                }
-                else
-                {
-                    screnemigo.GetComponent<NavMeshAgent>().isStopped = false;
                 }
             }
         }

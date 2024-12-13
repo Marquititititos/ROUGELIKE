@@ -22,7 +22,10 @@ public class scrPathFinding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(player.transform.position);
+        if (agent.enabled == true)
+        {
+            agent.SetDestination(player.transform.position);
+        }
 
         if (transform.position.x == player.transform.position.x)
         {

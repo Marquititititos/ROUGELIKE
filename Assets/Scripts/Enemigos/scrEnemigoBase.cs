@@ -32,6 +32,7 @@ public abstract class scrEnemigoBase : MonoBehaviour
     [HideInInspector] public scrPlayer scrplayer;
     public Animator animator;
     private Color colorBase;
+    public GameObject explosionMuerte;
 
     [HideInInspector] public Material materialBase;
 
@@ -67,6 +68,10 @@ public abstract class scrEnemigoBase : MonoBehaviour
 
         if (hp <= 0)
         {
+            if (GetComponent<scrBombita>() == null || GetComponent<scrBombita>() != null && GetComponent<scrBombita>().isCuchillo == true)
+            {
+                Instantiate(explosionMuerte, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
     }

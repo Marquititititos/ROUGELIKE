@@ -5,7 +5,6 @@ using UnityEngine;
 public class scrElectroshock : scrPoderBase
 {
     public List<GameObject> enemigosEnZona = new List<GameObject>();
-    public float duracion;
     public float cooldownZona = 0;
     private bool isShrinking = true;
     private bool hasEnded = false;
@@ -108,7 +107,7 @@ public class scrElectroshock : scrPoderBase
 
     private IEnumerator Duración()
     {
-        yield return new WaitForSeconds(duracion);
+        yield return new WaitForSeconds(cooldown);
 
         hasEnded = true;
 

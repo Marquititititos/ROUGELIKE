@@ -227,6 +227,7 @@ MonoBehaviour:
   player: {fileID: 0}
   scrplayer: {fileID: 0}
   animator: {fileID: 7820879697649186458}
+  explosionMuerte: {fileID: 3166013590524198715, guid: 7eb98af9f1a5ab74581b413c8837071a, type: 3}
   materialBase: {fileID: 0}
   zona: {fileID: 643120547122704625, guid: b96d2a2470cb83e469e3d0a1af00d6c4, type: 3}
   enemigosLayer:

@@ -19,6 +19,7 @@ public class scrPlayer : MonoBehaviour
 
     public bool invincible = false;
     public bool isBurbuja;
+    private bool isAlive = true;
     
 
     //Objetos
@@ -28,6 +29,7 @@ public class scrPlayer : MonoBehaviour
     public Animator animator;
     public TrailRenderer tr;
     public GameObject[] vidas;
+    public GameObject explosionMuerte;
 
     // Start is called before the first frame update
     void Start()
@@ -45,26 +47,29 @@ public class scrPlayer : MonoBehaviour
 
         if (isDashing == false)
         {
-
-            float hori = Input.GetAxisRaw("Horizontal");
-            float verti = Input.GetAxisRaw("Vertical");
-
-            rb.velocity = new Vector2(hori, verti) * spd;
-            direccion = new Vector2(hori, verti).normalized;
-
-            if (rb.velocity.x  != 0 || rb.velocity.y != 0)
+            if (isAlive)
             {
-                animator.SetFloat("Speed", 1);
-            } else
-            {
-                animator.SetFloat("Speed", 0);
-            }
+                float hori = Input.GetAxisRaw("Horizontal");
+                float verti = Input.GetAxisRaw("Vertical");
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                if (canDash == true)
+                rb.velocity = new Vector2(hori, verti) * spd;
+                direccion = new Vector2(hori, verti).normalized;
+
+                if (rb.velocity.x != 0 || rb.velocity.y != 0)
                 {
-                    StartCoroutine(Dash());
+                    animator.SetFloat("Speed", 1);
+                }
+                else
+                {
+                    animator.SetFloat("Speed", 0);
+                }
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    if (canDash == true)
+                    {
+                        StartCoroutine(Dash());
+                    }
                 }
             }
         }
@@ -104,17 +109,40 @@ public class scrPlayer : MonoBehaviour
 
     public IEnumerator Golpe(float daño)
     {
+        float spdSave = spd;
         if (invincible == false)
         {
-            if (hp > 0)
+            if (hp > 10)
             {
+                animator.SetBool("isHit", true);
+                canDash = false;
+                spd = 0;
                 GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
                 hp -= daño;
                 invincible = true;
                 vidas[(int)hp / 10].GetComponent<Animator>().SetTrigger("golpe");
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(0.5f);
+                animator.SetBool("isHit", false);
+                spd = spdSave;
+                canDash = true;
+                for (int i = 0; i < 5; i++)
+                {
+                    GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                    yield return new WaitForSeconds(0.2f);
+                    GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
+                    yield return new WaitForSeconds(0.2f);
+                }
                 invincible = false;
                 GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            } else
+            {
+                if (isAlive)
+                {
+                    animator.SetTrigger("Death");
+                    Instantiate(explosionMuerte, transform.position, Quaternion.identity);
+                    Destroy(GameObject.FindGameObjectWithTag("Arma"));
+                    isAlive = false;
+                }
             }
         }
     }

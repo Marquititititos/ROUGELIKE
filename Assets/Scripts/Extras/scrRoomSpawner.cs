@@ -40,7 +40,6 @@ public class scrRoomSpawner : MonoBehaviour
         GameObject.Find("Player").GetComponent<scrPlayer>().isBurbuja = false;
         GameObject.Find("Player").GetComponent<scrPlayer>().invincible = false;
         GameObject.Find("Player").GetComponent<scrPoderes>().StopAllCoroutines();
-        GameObject.Find("Player").GetComponent<scrPoderes>().canPoder = true;
 
         gridObjetos.Clear();
         gridEnemigos.Clear();

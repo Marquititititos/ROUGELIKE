@@ -143,17 +143,22 @@ MonoBehaviour:
   cooldown: 0
   attackRange: 1.5
   canAttack: 1
+  isFrozen: 0
   maxSpd: 5
   minSpd: 3
   spd: 0
+  minCooldown: 0
+  maxCooldown: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
   player: {fileID: 0}
   scrplayer: {fileID: 0}
   animator: {fileID: 0}
+  explosionMuerte: {fileID: 3166013590524198715, guid: 7eb98af9f1a5ab74581b413c8837071a, type: 3}
   materialBase: {fileID: 0}
   explosion: {fileID: 6340968132609160262, guid: aea5a4cb02e01cc498f3ed5ebbb53045, type: 3}
+  isCuchillo: 0
 --- !u!95 &1816425548924642645
 Animator:
   serializedVersion: 5

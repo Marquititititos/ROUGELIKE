@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 5
   "da\xF1o": 0
-  cooldownReuso: 15
+  cooldownReuso: 12
   enemigosLayer:
     serializedVersion: 2
     m_Bits: 0

@@ -150,15 +150,19 @@ MonoBehaviour:
   cooldown: 0
   attackRange: 0
   canAttack: 1
+  isFrozen: 0
   maxSpd: 2
   minSpd: 1
   spd: 0
+  minCooldown: 0
+  maxCooldown: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
   player: {fileID: 0}
   scrplayer: {fileID: 0}
   animator: {fileID: 0}
+  explosionMuerte: {fileID: 3166013590524198715, guid: 7eb98af9f1a5ab74581b413c8837071a, type: 3}
   materialBase: {fileID: 0}
   isColliding: 0
 --- !u!95 &3472396653911600827

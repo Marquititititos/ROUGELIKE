@@ -6,8 +6,7 @@ public class scrPotencia : scrPoderBase
 {
     // Start is called before the first frame update
     void Start()
-    {
-
+    { 
         GameObject arma = GameObject.FindGameObjectWithTag("Arma");
         StartCoroutine(Duración());
         transform.SetParent(GameObject.Find("Player").transform);

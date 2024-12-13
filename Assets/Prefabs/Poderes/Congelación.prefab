@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8172ca1fbedb3b94abdeeaf5d9bcc010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  cooldown: 5
   "da\xF1o": 0
-  cooldownReuso: 20
+  cooldownReuso: 15
   enemigosLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -56,4 +56,3 @@ MonoBehaviour:
   hielos: []
   hielo: {fileID: 7424622152548587152, guid: 764ecb6dbb5a7e64c875d87426200b86, type: 3}
   "efectoCongelaci\xF3n": {fileID: 1042798774586379217, guid: 62794fee33ecefa4d90166d0f36c7eec, type: 3}
-  cooldownHielo: 5

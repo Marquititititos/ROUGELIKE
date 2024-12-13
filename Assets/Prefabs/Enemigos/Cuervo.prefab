@@ -258,17 +258,18 @@ MonoBehaviour:
   maxSpd: 4
   minSpd: 2
   spd: 0
+  minCooldown: 5
+  maxCooldown: 8
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
   player: {fileID: 0}
   scrplayer: {fileID: 0}
   animator: {fileID: 8621175295717079412}
+  explosionMuerte: {fileID: 3166013590524198715, guid: 7eb98af9f1a5ab74581b413c8837071a, type: 3}
   materialBase: {fileID: 0}
   attackPoint: {fileID: 6370669022468163822}
   bola: {fileID: 6573322302752630737, guid: f14a12f7617f2874bb1c142a6481506f, type: 3}
-  minCooldown: 5
-  maxCooldown: 8
 --- !u!114 &3126622570448316124
 MonoBehaviour:
   m_ObjectHideFlags: 0

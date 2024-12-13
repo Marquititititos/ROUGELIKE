@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd5a01c4bbe4754d956d8dba11b97c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 15
+  cooldown: 10
   "da\xF1o": 0.25
   cooldownReuso: 15
   enemigosLayer:
@@ -129,7 +129,6 @@ MonoBehaviour:
   "t\xEDtulo": ELECTRIC ZONE
   desc: HITS NEARBY TARGETS PER SECOND
   enemigosEnZona: []
-  duracion: 10
   cooldownZona: 0
 --- !u!58 &8079027290483445671
 CircleCollider2D:

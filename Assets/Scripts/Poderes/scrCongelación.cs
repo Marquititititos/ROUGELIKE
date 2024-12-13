@@ -9,12 +9,11 @@ public class scrCongelación : scrPoderBase
     public List<GameObject> hielos = new List<GameObject>();
     public GameObject hielo;
     public GameObject efectoCongelación;
-    public float cooldownHielo;
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach(GameObject enemigo in GameObject.FindGameObjectsWithTag("Enemigo"))
+        foreach (GameObject enemigo in GameObject.FindGameObjectsWithTag("Enemigo"))
         {
             enemigos.Add(enemigo);
         }
@@ -25,6 +24,12 @@ public class scrCongelación : scrPoderBase
     private IEnumerator Congelar()
     {
         Instantiate(efectoCongelación, new Vector2(0, 0), Quaternion.identity);
+
+        foreach(ParticleSystem particula in FindObjectsOfType<ParticleSystem>())
+        {
+            particula.Stop();
+            Destroy(particula.gameObject);
+        }
 
         foreach (GameObject enemigo in enemigos)
         {
@@ -40,7 +45,7 @@ public class scrCongelación : scrPoderBase
             enemigo.GetComponent<Animator>().speed = 0;
         }
 
-        yield return new WaitForSeconds(cooldownHielo);
+        yield return new WaitForSeconds(cooldown);
 
         foreach (GameObject enemigo in enemigos)
         {
