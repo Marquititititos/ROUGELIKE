@@ -11,6 +11,9 @@ public class scrSpawnZone : MonoBehaviour
     public int ronda = 1;
     private int rondasParaAumentarEnemigos = 1;
     private int contadorRondaParaAumentarEnemigos = 0;
+    private int armaSeleccionada;
+    private int poderSeleccionado;
+    public bool isTransitioning;
 
     //Objetos
     public Vector2 playerSpawnPos = new Vector2(-11.5f, -0.5f);
@@ -20,8 +23,6 @@ public class scrSpawnZone : MonoBehaviour
     public Image BlackScreen2;
     public GameObject[] armas;
     public GameObject[] poderes;
-    private int armaSeleccionada;
-    private int poderSeleccionado;
     public List<GameObject> enemigosPosibles = new List<GameObject>();
 
     public GameObject cartelArma;
@@ -52,13 +53,19 @@ public class scrSpawnZone : MonoBehaviour
         {
             if (GameObject.FindGameObjectsWithTag("Enemigo").Length == 0)
             {
-                StartCoroutine(Siguiente());
+                if (scrBotones.instance.isPaused == false)
+                {
+                    StartCoroutine(Siguiente());
+                }
             }
         }
     }
 
     private IEnumerator Siguiente()
     {
+        isTransitioning = true;
+
+        //ALERTA DE CÓDIGO VOMITIVO
 
         Color newColor = Color.clear;
         while (BlackScreen.GetComponent<Image>().color.a < 1)
@@ -177,7 +184,7 @@ public class scrSpawnZone : MonoBehaviour
 
         }
 
-        roomSpawnerScript.Spawnear();
+        roomSpawnerScript.StartCoroutine(roomSpawnerScript.Spawnear());
 
         player.transform.position = new Vector2(-11.5f, -0.5f);
         player.GetComponent<scrPlayer>().spd = 6;
@@ -195,8 +202,8 @@ public class scrSpawnZone : MonoBehaviour
 
         while (cartelArma.GetComponent<Image>().rectTransform.anchoredPosition.y < 600)
         {
-            cartelArma.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1000);
-            cartelPoder.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1000);
+            cartelArma.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 5000 * Time.deltaTime);
+            cartelPoder.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 5000 * Time.deltaTime);
             yield return null;
         }
 
@@ -207,6 +214,9 @@ public class scrSpawnZone : MonoBehaviour
 
         player.GetComponent<scrPoderes>().StartCoroutine(player.GetComponent<scrPoderes>().cooldown(poderes[poderSeleccionado].GetComponent<scrPoderBase>().cooldownReuso));
         player.GetComponent<scrPoderes>().isLoadingBarra = true;
+
+        isTransitioning = false;
+        scrBotones.instance.rondaSave = ronda;
     }
 
     private IEnumerator RuletaArma()

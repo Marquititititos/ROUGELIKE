@@ -20,11 +20,13 @@ public class scrRoomSpawner : MonoBehaviour
     public List<Vector2> gridObjetos = new List<Vector2>();
     public List<Vector2> gridEnemigos = new List<Vector2>();
     public List<GameObject> instancias = new List<GameObject>();
+    public ParticleSystem enemyIndicator;
+    public List<ParticleSystem> advertencias = new List<ParticleSystem>();
 
     // Start is called before the first frame update
     void Start()
     {
-        Spawnear();
+        StartCoroutine(Spawnear());
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class scrRoomSpawner : MonoBehaviour
 
     }
 
-    public void Spawnear()
+    public IEnumerator Spawnear()
     {
 
         GameObject.Find("Player").GetComponent<scrPlayer>().isBurbuja = false;
@@ -43,6 +45,7 @@ public class scrRoomSpawner : MonoBehaviour
         gridObjetos.Clear();
         gridEnemigos.Clear();
         instancias.Clear();
+        advertencias.Clear();
 
         //Crear grid objetos
         for (int x = 0; x < gridWidth; x++)
@@ -79,11 +82,26 @@ public class scrRoomSpawner : MonoBehaviour
                 Vector2 maxBound = vectorObjeto + new Vector2(1, 1);
 
                 gridObjetos.RemoveAll(v => v.x >= minBound.x && v.x <= maxBound.x && v.y >= minBound.y && v.y <= maxBound.y);
+                gridEnemigos.Remove(vectorObjeto);
             }
         }
 
+        yield return new WaitForSeconds(1);
+
         //Spawnear enemigos
+
         for (int i = 0; i < enemyNumber; i++)
+        {
+            ParticleSystem advertencia = Instantiate(enemyIndicator);
+            advertencia.transform.position = gridEnemigos[Random.Range(0, gridEnemigos.Count)];
+            Vector2 vectorEnemigo = advertencia.transform.position;
+            gridEnemigos.Remove(vectorEnemigo);
+            advertencias.Add(advertencia);
+        }
+
+        yield return new WaitForSeconds(1.5f);
+
+        for (int i = 0; i < advertencias.Count; i++)
         {
             GameObject enemigo = Instantiate(enemigos[Random.Range(0, enemigos.Count)]);
             instancias.Add(enemigo);
@@ -93,7 +111,8 @@ public class scrRoomSpawner : MonoBehaviour
                 enemigo.GetComponent<NavMeshAgent>().enabled = false;
             }
 
-            enemigo.transform.position = gridEnemigos[Random.Range(0, gridEnemigos.Count)];
+            enemigo.transform.position = advertencias[i].gameObject.transform.position;
+            Instantiate(enemigo.GetComponent<scrEnemigoBase>().explosionMuerte, enemigo.transform.position, Quaternion.identity);
 
             if (enemigo.GetComponent<NavMeshAgent>() != null)
             {
@@ -102,11 +121,7 @@ public class scrRoomSpawner : MonoBehaviour
 
             Vector2 vectorEnemigo = enemigo.transform.position;
             gridEnemigos.Remove(vectorEnemigo);
-        }
-
-        foreach (GameObject enemigo in instancias)
-        {
-            Debug.Log("Enemy position in Update: " + enemigo.transform.position);
+            Destroy(advertencias[i].gameObject);
         }
 
         //foreach(Vector2 vector in gridEnemigos)

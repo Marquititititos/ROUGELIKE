@@ -35,44 +35,46 @@ public abstract class scrArmaBase : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-
-        scrPlayer scriptPlayer = player.GetComponent<scrPlayer>();
-        transform.position = new Vector2(posPlayer.position.x, posPlayer.position.y - 0.2f);
-        mousePos = camara.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
-        Vector3 rotation = mousePos - transform.position;
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotZ);
-
-        if (rotZ > 180)
+        if (scrBotones.instance.isPaused == false)
         {
-            rotZ -= 360;
-        }
+            scrPlayer scriptPlayer = player.GetComponent<scrPlayer>();
+            transform.position = new Vector2(posPlayer.position.x, posPlayer.position.y - 0.2f);
+            mousePos = camara.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0;
+            Vector3 rotation = mousePos - transform.position;
+            float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, rotZ);
 
-        if (rotZ > -90 && rotZ < 90)
-        {
-            transform.localScale = new Vector2(1, 1);
-        }
-        else
-        {
-            transform.localScale = new Vector2(1, -1);
-        }
-
-        if (Input.GetMouseButton(0) && canShoot == true && scriptPlayer.isDashing == false)
-        {
-            Disparar();
-        }
-
-        if (canShoot == false)
-        {
-            if (timer < cooldown)
+            if (rotZ > 180)
             {
-                timer += Time.deltaTime;
+                rotZ -= 360;
+            }
+
+            if (rotZ > -90 && rotZ < 90)
+            {
+                transform.localScale = new Vector2(1, 1);
             }
             else
             {
-                canShoot = true;
-                timer = 0;
+                transform.localScale = new Vector2(1, -1);
+            }
+
+            if (Input.GetMouseButton(0) && canShoot == true && scriptPlayer.isDashing == false)
+            {
+                Disparar();
+            }
+
+            if (canShoot == false)
+            {
+                if (timer < cooldown)
+                {
+                    timer += Time.deltaTime;
+                }
+                else
+                {
+                    canShoot = true;
+                    timer = 0;
+                }
             }
         }
     }

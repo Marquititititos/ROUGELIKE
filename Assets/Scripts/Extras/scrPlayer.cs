@@ -30,6 +30,7 @@ public class scrPlayer : MonoBehaviour
     public TrailRenderer tr;
     public GameObject[] vidas;
     public GameObject explosionMuerte;
+    public GameObject pauseMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -45,9 +46,14 @@ public class scrPlayer : MonoBehaviour
             invincible = true;
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            scrBotones.instance.Pausa();
+        }
+
         if (isDashing == false)
         {
-            if (isAlive)
+            if (isAlive && scrBotones.instance.isPaused == false)
             {
                 float hori = Input.GetAxisRaw("Horizontal");
                 float verti = Input.GetAxisRaw("Vertical");
@@ -71,6 +77,9 @@ public class scrPlayer : MonoBehaviour
                         StartCoroutine(Dash());
                     }
                 }
+            } else
+            {
+                rb.velocity = Vector2.zero;
             }
         }
 
